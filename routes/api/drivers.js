@@ -16,7 +16,8 @@ router.get('/', (req, res) => {
 // ---- access Public --------------
 router.post('/', (req, res) => {
   const newDriver = new Driver({
-    name: req.body.name
+    name: req.body.name,
+    truckNo: req.body.truckNo
 });
 
   newDriver.save().then(driver => res.json(driver));
