@@ -2,20 +2,18 @@ import React, { Component } from 'react';
 import { Container, ListGroup, Button, ListGroupItem } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { v4 as uuid }from 'uuid';
+import { connect } from 'react-redux';
+import { getDrivers } from '../actions/driverActions';
+import PropTypes from 'prop-types';
 
 class Drivers extends Component {
-  state = {
-    drivers: [
-      { id: uuid(), name: 'Nathan Huber', truckNo: 'N8'},
-      { id: uuid(), name: 'Henry Huber', truckNo: 'H10'},
-      { id: uuid(), name: 'Erick Huber', truckNo: 'H20'},
-      { id: uuid(), name: 'Christopher Huber', truckNo: 'H13'},
-      { id: uuid(), name: 'Rick Huber', truckNo: 'H11'},
-    ]
-  }
 
+  componentDidMount() {
+    this.props.getDrivers();
+  }
+  
   render() {
-    const { drivers } = this.state;
+    const { drivers } = this.props.driver;
     return(
       <Container>
         <Button 
@@ -36,10 +34,21 @@ class Drivers extends Component {
         <ListGroup>
           <TransitionGroup className="driver-list">
             {drivers.map(({ id, name, truckNo }) => (
-              <CSSTransition key={id} timeout={500} classNames="fade">
-     
-     
-                <ListGroupItem>{name} - {truckNo}</ListGroupItem>
+              <CSSTransition key={id} timeout={500} classNames="fade">       
+                <ListGroupItem>
+                  <Button
+                    className="remove-btn"
+                    color="danger"
+                    style={{marginRight: '.5rem'}}
+                    size="sm"
+                    onClick={() => {
+                      this.setState(state => ({
+                        drivers: state.drivers.filter(driver => driver.id !== id)
+                      }));
+                    }}
+                  >&times;</Button>
+                  {name} - Truck #{truckNo}
+                </ListGroupItem>
               </CSSTransition>
             ))}
           </TransitionGroup>
@@ -49,4 +58,13 @@ class Drivers extends Component {
   }
 }
 
-export default Drivers;
+Drivers.propTypes = {
+  getDrivers: PropTypes.func.isRequired,
+  driver: PropTypes.object.isRequired
+}
+
+const mapStateToProps = (state) => ({
+  driver: state.driver
+});
+
+export default connect(mapStateToProps, { getDrivers })(Drivers);
