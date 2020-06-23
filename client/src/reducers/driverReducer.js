@@ -17,6 +17,11 @@ export default function(state = initialState, action) {
       return {
         ...state
       };
+    case DELETE_DRIVER:
+      return {
+        ...state,
+        drivers: state.drivers.filter(driver => driver.id !== action.payload)
+      }
     default:
       return state;
   }

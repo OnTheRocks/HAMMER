@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Container, ListGroup, Button, ListGroupItem } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { v4 as uuid }from 'uuid';
 import { connect } from 'react-redux';
-import { getDrivers } from '../actions/driverActions';
+import { getDrivers, deleteDriver } from '../actions/driverActions';
 import PropTypes from 'prop-types';
 
 class Drivers extends Component {
@@ -12,24 +11,14 @@ class Drivers extends Component {
     this.props.getDrivers();
   }
   
+  onDeleteClick = (id) => {
+    this.props.deleteDriver(id);
+  };
+
   render() {
     const { drivers } = this.props.driver;
     return(
       <Container>
-        <Button 
-          color="success"
-          style={{marginBottom: '2rem'}}
-          onClick={() => {
-            const name = prompt("Enter Driver Name.");
-            const truckNo = prompt("Enter Truck Number.");
-            if(name && truckNo) {
-              this.setState(state => ({
-                drivers: [...state.drivers, { id: uuid(), name, truckNo }]
-              }));
-            }
-          }}
-          >Add Driver
-        </Button>
 
         <ListGroup>
           <TransitionGroup className="driver-list">
@@ -41,17 +30,13 @@ class Drivers extends Component {
                     color="danger"
                     style={{marginRight: '.5rem'}}
                     size="sm"
-                    onClick={() => {
-                      this.setState(state => ({
-                        drivers: state.drivers.filter(driver => driver.id !== id)
-                      }));
-                    }}
+                    onClick={this.onDeleteClick.bind(this, id)}
                   >&times;</Button>
                   {name} - Truck #{truckNo}
                 </ListGroupItem>
               </CSSTransition>
             ))}
-          </TransitionGroup>
+          </TransitionGroup> 
         </ListGroup>
       </Container>
     );
@@ -67,4 +52,4 @@ const mapStateToProps = (state) => ({
   driver: state.driver
 });
 
-export default connect(mapStateToProps, { getDrivers })(Drivers);
+export default connect(mapStateToProps, { getDrivers, deleteDriver })(Drivers);

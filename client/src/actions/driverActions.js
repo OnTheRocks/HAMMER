@@ -5,3 +5,10 @@ export const getDrivers = () => {
     type: GET_DRIVERS
   };
 };
+
+export const deleteDriver = id => {
+  return {
+    type: DELETE_DRIVER,
+    payload: id
+  };
+};
