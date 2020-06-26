@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import HammerNavbar from './components/HammerNavbar';
-import Drivers from './components/Drivers';
+// import Drivers from './components/Drivers';
+import Customers from './components/CustomerList';
 // import DriverModal from './components/DriverModal';
 
 import { Provider } from 'react-redux';
@@ -16,11 +17,12 @@ class App extends Component {
         <div className="App">
          <HammerNavbar />
          {/* <DriverModal /> */}
-         <Drivers />
+         {/* <Drivers /> */}
+         <Customers />
         </div>
       </Provider>
     );
-}
+  }
 }
 
 export default App;
