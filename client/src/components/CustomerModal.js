@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input } from 'reactstrap';
 import { connect } from 'react-redux';
 import { addCustomer } from '../actions/customerActions';
-// import e from 'express';
+// import { v4 as uuidv4 } from 'uuid';
+
 
 class CustomerModal extends Component {
   state= {
@@ -20,15 +21,25 @@ class CustomerModal extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  onSubmit = e => {
+    e.preventDefault();
+
+    const newCustomer = {
+      name: this.state.name
+    }
+
+    // Add Customer via addCustomer action
+    this.props.addCustomer(newCustomer);
+    // Close modal
+    this.toggle();
+  }
+
   render() {
     return(
       <div>
-        <Button
-          color="dark"
-          style={{marginBottom: '2rem'}}
-          onClick={this.toggle}
-          >Add Customer</Button>
-
+        <Button color="dark" style={{marginBottom: '2rem'}} onClick={this.toggle}>
+          Add Customer
+        </Button>
           <Modal
             isOpen={this.state.modal}
             toggle={this.toggle}
@@ -45,6 +56,9 @@ class CustomerModal extends Component {
                     placeholder="Add Customer"
                     onChange={this.onChange}
                     />
+                    <Button color="success" style={{marginTop: '2rem'}} block>
+                      Add Customer
+                    </Button>
                 </FormGroup>
               </Form>
             </ModalBody>
@@ -54,4 +68,8 @@ class CustomerModal extends Component {
   }
 }
 
-export default connect()(CustomerModal);
+const mapStateToProps = state => ({
+  customer: state.item
+});
+
+export default connect(mapStateToProps, { addCustomer })(CustomerModal);

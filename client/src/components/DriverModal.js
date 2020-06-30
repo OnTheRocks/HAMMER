@@ -32,7 +32,7 @@ class DriverModal extends Component {
     render() {
       return (
         <div>
-          <Button color="success" style={{marginBottom: '2rem'}} onClick={this.toggle}>Add Driver</Button>
+          <Button color="dark" style={{marginBottom: '2rem', marginTop: '2rem'}} onClick={this.toggle}>Add Driver</Button>
             <Modal isOpen={this.state.modal} toggle={this.toggle}>
               <ModalHeader toggle={this.toggle}>Add Drivers</ModalHeader>
                 <ModalBody>
