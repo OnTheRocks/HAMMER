@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import HammerNavbar from './components/HammerNavbar';
-// import Drivers from './components/Drivers';
+import Drivers from './components/Drivers';
 import Customers from './components/CustomerList';
-// import DriverModal from './components/DriverModal';
+import DriverModal from './components/DriverModal';
+import CustomerModal from './components/CustomerModal';
+import { Container } from 'reactstrap';
 
 import { Provider } from 'react-redux';
 import store from './store';
@@ -16,9 +18,14 @@ class App extends Component {
       <Provider store={store}> 
         <div className="App">
          <HammerNavbar />
-         {/* <DriverModal /> */}
-         {/* <Drivers /> */}
-         <Customers />
+          <Container>
+            <CustomerModal />
+            <Customers />
+          </Container>
+          <Container>
+            <DriverModal />
+            <Drivers />
+          </Container>
         </div>
       </Provider>
     );

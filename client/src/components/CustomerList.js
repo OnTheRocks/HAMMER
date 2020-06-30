@@ -1,36 +1,24 @@
 import React, { Component } from 'react';
 import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { v4 as uuidv1 } from "uuid";
+import { connect }  from 'react-redux';
+import { getCustomers, deleteCustomer } from '../actions/customerActions';
+import PropTypes  from 'prop-types'; 
 
 class CustomerList extends Component {
-  state = {
-    customers: [
-      { id: uuidv1(), name: 'Plains Readymix'},
-      { id: uuidv1(), name: 'Concrete Industries'},
-      { id: uuidv1(), name: 'Garden City Ready Mix Inc.'},
-      { id: uuidv1(), name: 'Lee Construction'}
-      
-    ]
+
+  componentDidMount() {
+    this.props.getCustomers();
   }
 
+  onDeleteClick = (id) => {
+    this.props.deleteCustomer(id);
+  } 
+  
   render()  {
-    const { customers } = this.state;
+    const { customers } = this.props.customer;
     return (
       <Container>
-        <Button
-          color="dark"
-          style={{marginBottom: '2rem'}}
-          onClick={() => {
-            const name = prompt('Enter Customer');
-            if(name) {
-              this.setState(state => ({
-                customers: [...state.customers, { id: uuidv1(), name }]
-              }));
-            }
-          }}  
-        >Add Customer</Button>
-
         <ListGroup>
           <TransitionGroup className="Customer-List">
             {customers.map(({ id, name }) => (
@@ -41,11 +29,7 @@ class CustomerList extends Component {
                     color="danger"
                     size="sm"
                     style={{marginRight: '0.5rem'}}
-                    onClick={() => {
-                      this.setState(state => ({
-                        customers: state.customers.filter(customer => customer.id !== id)
-                      }));
-                    }}
+                    onClick={this.onDeleteClick.bind(this, id)}
                     >&times;</Button>
                   {name}</ListGroupItem>
               </CSSTransition>
@@ -57,4 +41,13 @@ class CustomerList extends Component {
   }
 }
 
-export default CustomerList;
+CustomerList.propTypes = {
+  getCustomers: PropTypes.func.isRequired,
+  customer: PropTypes.object.isRequired
+}
+
+const mapStateToProps = (state) => ({
+  customer: state.customer
+});
+
+export default connect(mapStateToProps, { getCustomers, deleteCustomer })(CustomerList);
