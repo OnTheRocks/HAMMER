@@ -11,8 +11,8 @@ const app = express();
 
 app.use(express.json());
 
-// const DB = process.env.DB;
-const DB = require('./config/keys').mongoURI;
+const DB = process.env.DB;
+// const DB = require('./config/keys').mongoURI;
 
 mongoose
   .connect(DB,{ useNewUrlParser: true, useUnifiedTopology: true } )
