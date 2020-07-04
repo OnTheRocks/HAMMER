@@ -5,6 +5,14 @@ const CustomerSchema = new Schema({
   name: {
     type: String,
     required: true
+  },
+  phone: {
+    type: String,
+    required: true
+  },
+  billing: {
+    type: String,
+    required: true
   }
 });
 

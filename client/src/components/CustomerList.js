@@ -21,7 +21,7 @@ class CustomerList extends Component {
       <Container>
         <ListGroup>
           <TransitionGroup className="Customer-List">
-            {customers.map(({ _id, name }) => (
+            {customers.map(({ _id, name, phone, billing }) => (
               <CSSTransition key={_id} timeout={500} classNames="fade">
                 <ListGroupItem>
                   <Button
@@ -31,7 +31,7 @@ class CustomerList extends Component {
                     style={{marginRight: '0.5rem'}}
                     onClick={this.onDeleteClick.bind(this, _id)}
                     >&times;</Button>
-                  {name}</ListGroupItem>
+                  {name}  {phone}</ListGroupItem>
               </CSSTransition>
             ))}
           </TransitionGroup>
