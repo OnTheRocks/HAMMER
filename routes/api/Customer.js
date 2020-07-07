@@ -3,11 +3,11 @@ const router = express.Router();
 
 const Customer = require('../../models/Customer')
 
-// ---- route GET api/customers --------------
+// ---- route GET api/customers -------------
 // ---- desc GET ALL Customers --------------
-// ---- access Public --------------
+// ---- access Public ---------------------
 router.get('/', (req, res) => {
-  Customer.find()
+  Customer.find() 
   .then(customers => res.json(customers))
 });
 
@@ -16,10 +16,14 @@ router.get('/', (req, res) => {
 // ---- access Public --------------
 router.post('/', (req, res) => {
   const newCustomer = new Customer({
-    name: req.body.name
+    customerName: req.body.customerName,
+    customerStreet: req.body.customerStreet,
+    customerCity: req.body.customerCity,
+    customerState: req.body.customerState,
+    customerZip: req.body.customerZip
 });
 
-  newCustomer.save().then(customer => res.json(customer));
+newCustomer.save().then(customer => res.json(customer));
 
 });
 
@@ -31,6 +35,9 @@ router.delete('/:id', (req, res) => {
     .then(customer => customer.remove().then(() => res.json({ success: true })))
     .catch(err => res.status(404).json({ success: false }));
   });
-  
+
+
+
+
 
 module.exports = router;

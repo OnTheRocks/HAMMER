@@ -2,17 +2,21 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const CustomerSchema = new Schema({
-  name: {
+  customerName: {
     type: String,
     required: true
   },
-  phone: {
-    type: String,
-    required: true
+  customerStreet: {
+    type: String
   },
-  billing: {
-    type: String,
-    required: true
+  customerCity: {
+    type: String
+  },
+  customerState: {
+    type: String
+  },
+  customerZip: {
+    type: String
   }
 });
 
