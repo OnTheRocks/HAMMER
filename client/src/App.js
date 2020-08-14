@@ -1,5 +1,7 @@
 import React from 'react';
-import NavBar from './components/NavBar'
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import NavBar from './components/NavBar';
+import Customers from './components/Customers';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,10 +10,22 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <NavBar/>
-      
-    </div>
+    <Router>
+      <div>
+        <NavBar />
+        <Switch>
+          <Route exact path={["/", "/customers"]}>
+            <Customers />
+          </Route>
+          <Route exact path="/books/:id">
+            {/* <Detail /> */}
+          </Route>
+          <Route>
+            {/* <NoMatch /> */}
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
