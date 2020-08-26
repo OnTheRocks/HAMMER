@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NavBar from './components/NavBar';
 import Customers from './components/Customers';
+import CustDetails from './components/CustDetails';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -14,11 +15,11 @@ function App() {
       <div>
         <NavBar />
         <Switch>
-          <Route exact path={["/", "/customers"]}>
+          <Route exact path={"/customers"}>
             <Customers />
           </Route>
-          <Route exact path="/books/:id">
-            {/* <Detail /> */}
+          <Route exact path="/customers/:id">
+            <CustDetails />
           </Route>
           <Route>
             {/* <NoMatch /> */}

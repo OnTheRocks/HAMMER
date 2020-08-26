@@ -49,7 +49,7 @@ function Customers() {
         customerStreet: formObject.customerStreet,
         customerCity: formObject.customerCity,
         customerState: formObject.customerState,
-        customerCity: formObject.customerZip
+        customerZip: formObject.customerZip
       })
         .then(res => loadCustomers())
         .catch(err => console.log(err));
@@ -105,17 +105,17 @@ function Customers() {
               <List>
                 {customers.map(customers => (
                   <ListItem key={customers._id}>
-                    <Link to={"/books/" + customers._id}>
+                    <Link to={"/Customers/" + customers._id}>
                       <strong>
                         {customers.customerName}
-                      <br></br>
+                      {/* <br></br>
                         {customers.customerStreet}
                       <br></br>
                         {customers.customerCity}, {customers.customerState}
                       <br></br>
                         {customers.customerZip}
                       <br></br>
-                        {customers._id}
+                        {customers._id} */}
                       </strong>
                     </Link>
                     <DeleteBtn onClick={() => deleteCustomer(customers._id)} />
