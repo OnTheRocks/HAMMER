@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const Customer = require('../../models/Customer')
+const Customer = require('../../models/Customer');
 
 // ---- route GET api/customers -------------
 // ---- desc GET ALL Customers --------------

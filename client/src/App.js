@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NavBar from './components/NavBar';
 import Customers from './components/Customers';
+import Tickets from './components/Tickets';
 import CustDetails from './components/CustDetails';
 
 
@@ -18,8 +19,11 @@ function App() {
           <Route exact path={"/customers"}>
             <Customers />
           </Route>
-          <Route exact path="/customers/:id">
+          <Route exact path={"/customers/:id"}>
             <CustDetails />
+          </Route>
+          <Route exact path={"/tickets"}>
+            <Tickets />
           </Route>
           <Route>
             {/* <NoMatch /> */}

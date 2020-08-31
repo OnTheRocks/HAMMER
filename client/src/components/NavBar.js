@@ -23,7 +23,7 @@ const NavBar = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/components/Tickets">Tickets</NavLink>              
+              <NavLink href="/Tickets">Tickets</NavLink>              
             </NavItem>
             <NavItem>
               <NavLink href="/Customers">Customers</NavLink>

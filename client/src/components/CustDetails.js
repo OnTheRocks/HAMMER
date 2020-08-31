@@ -5,16 +5,16 @@ import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 
 function CustDetails(props) {
-  const [customers, setCustomer] = useState({})
+  const [customers, setCustomers] = useState({})
 
   // When this component mounts, grab the customer with the _id of props.match.params.id
   // e.g. localhost:3000/customers/599dcb67f0f16317844583fc
   const {id} = useParams()
   useEffect(() => {
     API.getCustomer(id)
-      .then(res => setCustomer(res.data))
+      .then(res => setCustomers(res.data))
       .catch(err => console.log(err));
-  },[])
+  })
 
   return (
       <Container fluid>
@@ -22,11 +22,11 @@ function CustDetails(props) {
           <Col size="md-12">
             <Jumbotron>
               <h1>
-              {/* <strong> */}
+              <strong>
                       Should list customer name here:
                       {customers.customerName}
                     
-              {/* </strong> */}
+              </strong>
               </h1>
             </Jumbotron>
           </Col>
@@ -34,7 +34,7 @@ function CustDetails(props) {
         <Row>
           <Col size="md-10 md-offset-1">
             <article>
-              <h1>Synopsis</h1>
+              <h1>Customer Details</h1>
               <p>
                 {customers.customerName}
                 Something should go here.
