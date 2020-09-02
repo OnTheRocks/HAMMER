@@ -15,7 +15,7 @@ const DB = process.env.DB;
 
 mongoose
   .connect(DB,{ useNewUrlParser: true, useUnifiedTopology: true})
-  .then(() => console.log('MongoDB Connected Brother...!'))
+  .then(() => console.log('MongoDB Connected!'))
   .catch(err => console.log(err));
 
   app.use('/api/customers', customers);

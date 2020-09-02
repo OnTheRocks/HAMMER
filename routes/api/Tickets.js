@@ -17,6 +17,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   const newTicket = new Ticket({
     TicketDate: req.body.TicketDate,
+    TicketNum: req.body.TicketNum,
     TicketCustName: req.body.TicketCustName,
     TicketBillingStreet: req.body.TicketBillingStreet,
     TicketBillingCity: req.body.TicketBillingCity,

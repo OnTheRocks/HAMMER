@@ -43,10 +43,10 @@ function Tickets() {
 // Then reload tickets from the database
   function handleFormSubmit(event) {
     event.preventDefault();
-    if (formObject.TicketNum) {
+    if (formObject.TicketDate) {
       API.saveTicket({
-        TicketDate: formObject.TicketDate,
         TicketNum: formObject.TicketNum,
+        TicketDate: formObject.TicketDate,
         TicketCustName: formObject.TicketCustName,
         TicketBillingStreet: formObject.TicketBillingStreet,
         TicketBillingCity: formObject.TicketBillingCity,
@@ -150,7 +150,7 @@ function Tickets() {
                   <ListItem key={tickets._id}>
                     <Link to={"/Tickets/" + tickets._id}>
                       <strong>
-                        {tickets.TicketNum}
+                        {tickets.TicketNum} -- {tickets.TicketCustName}
                       {/* <br></br>
                         {customers.customerStreet}
                       <br></br>
