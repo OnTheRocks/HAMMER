@@ -5,7 +5,7 @@ import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
-import { Input, FormBtn } from "../components/Form";
+import { Input, DropDown, FormBtn } from "../components/Form";
 
 function Tickets() {
   // Setting our component's initial state
@@ -56,7 +56,7 @@ function Tickets() {
         TicketDescription: formObject.TicketDescription,
         TicketTare: formObject.TicketTare,
         TicketGross: formObject.TicketGross,
-        TicketNet: formObject.TicketNet
+        TicketNet: formObject.TicketGross - formObject.TicketTare
       })
         .then(res => loadTickets())
         .catch(err => console.log(err));
@@ -74,7 +74,7 @@ function Tickets() {
             <Input
               onChange={handleInputChange}
               name="TicketDate"
-              placeholder="Date (required)"
+              placeholder="Date"
             />
             <Input
               onChange={handleInputChange}
@@ -86,6 +86,12 @@ function Tickets() {
               name="TicketCustName"
               placeholder="Name"
             />
+            {/* <DropDown
+              onChange={handleInputChange}
+              name="TicketCustName"
+              data={tickets.TicketCustName}
+              placeholder="Customer"
+            /> */}
             <Input
               onChange={handleInputChange}
               name="TicketBillingStreet"
@@ -108,14 +114,14 @@ function Tickets() {
             />
             <Input
               onChange={handleInputChange}
-              name="TicketQuan"
-              placeholder="Quantity"
-            />
-            <Input
-              onChange={handleInputChange}
               name="TicketDescription"
               placeholder="Description"
             />
+            <Input
+              onChange={handleInputChange}
+              name="TicketQuan"
+              placeholder="Quantity"
+            /> 
             <Input
               onChange={handleInputChange}
               name="TicketTare"
@@ -126,12 +132,7 @@ function Tickets() {
               name="TicketGross"
               placeholder="Gross Weight"
             />
-            <Input
-              onChange={handleInputChange}
-              name="TicketNet"
-              placeholder="Net Weight"
-            />
-            
+           
             <FormBtn
               disabled={!(formObject.TicketNum)}
               onClick={handleFormSubmit}
@@ -150,7 +151,7 @@ function Tickets() {
                   <ListItem key={tickets._id}>
                     <Link to={"/Tickets/" + tickets._id}>
                       <strong>
-                        {tickets.TicketNum} -- {tickets.TicketCustName}
+                        {tickets.TicketNum} -- {tickets.TicketCustName} -- Net Weight = {tickets.TicketNet}
                       {/* <br></br>
                         {customers.customerStreet}
                       <br></br>

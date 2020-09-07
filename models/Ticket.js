@@ -48,7 +48,7 @@ const TicketSchema = new Schema ({
   },
   TicketNet: {
     type: Number,
-    required: true
+    
   }
 });
 
