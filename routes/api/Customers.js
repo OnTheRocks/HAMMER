@@ -11,6 +11,14 @@ router.get('/', (req, res) => {
   .then(customers => res.json(customers))
 });
 
+// ---- route GET api/customers/:id -------------
+// ---- desc GET Customer with given ID------
+// ---- access Public ---------------------
+router.get('/:id', (req, res) => {
+  Customer.findById(req.params.id) 
+  .then(customer => res.json(customer))
+});
+
 // ---- route POST api/customers --------------
 // ---- desc Creates a Customer --------------
 // ---- access Public --------------
@@ -27,7 +35,7 @@ newCustomer.save().then(customer => res.json(customer));
 
 });
 
-// ---- route DELETE api/customers --------------
+// ---- route DELETE apicustomers/:id --------
 // ---- desc Deletes a Customer --------------
 // ---- access Public --------------
 router.delete('/:id', (req, res) => {

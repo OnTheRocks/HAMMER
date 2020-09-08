@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import Customers from './components/Customers';
 import Tickets from './components/Tickets';
 import CustDetails from './components/CustDetails';
+import TicketDetails from './components/TicketDetails';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route exact path={"/tickets"}>
             <Tickets />
+          </Route>
+          <Route exact path={"/tickets/:id"}>
+            <TicketDetails />
           </Route>
           <Route>
             {/* <NoMatch /> */}

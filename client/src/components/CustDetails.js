@@ -14,7 +14,7 @@ function CustDetails(props) {
     API.getCustomer(id)
       .then(res => setCustomers(res.data))
       .catch(err => console.log(err));
-  })
+  }, [id])
 
   return (
       <Container fluid>
@@ -23,9 +23,7 @@ function CustDetails(props) {
             <Jumbotron>
               <h1>
               <strong>
-                      Should list customer name here:
-                      {customers.customerName}
-                    
+                {customers.customerName}                      
               </strong>
               </h1>
             </Jumbotron>
@@ -36,8 +34,15 @@ function CustDetails(props) {
             <article>
               <h1>Customer Details</h1>
               <p>
+                <strong>
                 {customers.customerName}
-                Something should go here.
+                </strong>
+                <br></br>
+                  {customers.customerStreet}
+                <br></br>
+                  {customers.customerCity}, {customers.customerState}  {customers.customerZip}
+                <br></br>
+                  {customers._id}
               </p>
             </article>
           </Col>
@@ -50,5 +55,5 @@ function CustDetails(props) {
       </Container>
     );
   }
-
+  
   export default CustDetails

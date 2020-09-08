@@ -108,14 +108,6 @@ function Customers() {
                     <Link to={"/Customers/" + customers._id}>
                       <strong>
                         {customers.customerName}
-                      {/* <br></br>
-                        {customers.customerStreet}
-                      <br></br>
-                        {customers.customerCity}, {customers.customerState}
-                      <br></br>
-                        {customers.customerZip}
-                      <br></br>
-                        {customers._id} */}
                       </strong>
                     </Link>
                     <DeleteBtn onClick={() => deleteCustomer(customers._id)} />

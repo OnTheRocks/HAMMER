@@ -33,6 +33,4 @@ export default {
   saveTicket: function(ticketData) {
     return axios.post("/api/Tickets", ticketData);
   }
-
-
 };

@@ -11,6 +11,14 @@ router.get('/', (req, res) => {
   .then(tickets => res.json(tickets))
 });
 
+// ---- route GET api/ticketss/:id -------------
+// ---- desc GET Ticket with given ID------
+// ---- access Public ---------------------
+router.get('/:id', (req, res) => {
+  Ticket.findById(req.params.id) 
+  .then(ticket => res.json(ticket))
+});
+
 // ---- route POST api/tickets --------------
 // ---- desc Creates a Ticket --------------
 // ---- access Public --------------
