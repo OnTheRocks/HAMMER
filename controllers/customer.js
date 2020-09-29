@@ -26,8 +26,7 @@ module.exports = {
   getCustomer: async(req, res, next) => {
     const { customerID } = req.params;
     const customer = await Customer.findById(customerID);
-    res.status(200).json(customer);
-  
+    res.status(200).json(customer);  
   },
 
   
