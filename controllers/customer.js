@@ -24,13 +24,10 @@ module.exports = {
   }, 
   
   getCustomer: async(req, res, next) => {
-    try {
     const { customerID } = req.params;
     const customer = await Customer.findById(customerID);
     res.status(200).json(customer);
-    } catch(err) {
-          next(err);
-      }
+  
   },
 
   

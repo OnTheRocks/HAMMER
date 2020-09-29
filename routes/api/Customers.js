@@ -15,6 +15,6 @@ router.route('/:customerID')
   .patch(customerController.updateCustomer);
 
 router.route('/:customerID/locations')
-  .get(customerController.getCustomerLocations)
+  // .get(customerController.getCustomerLocations)
 
 module.exports = router;
