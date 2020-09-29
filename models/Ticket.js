@@ -1,55 +1,25 @@
 const mongoose = require('mongoose');
-const Schema   = mongoose.Schema;
+const Schema = mongoose.Schema;
+
 
 const TicketSchema = new Schema ({
-  TicketDate: {
-    type: Date,
-    required: true 
-  },
-  TicketNum: {
-    type: String,
+  // _id: {
+  //   type: String,
+  //   required: true
+  // },
+  ticketDate: {
+    type: {Date, default: Date.now},
     required: true
   },
-  TicketCustName: {
-    type: String,
-    required: true
-  },
-  TicketBillingStreet: {
-    type: String,
-    required: true 
-  }, 
-  TicketBillingCity: {
-    type: String,
-    required: true
-  },
-  TicketBillingState: {
-    type: String,
-    required: true
-  },
-  TicketBillingZip: {
-    type: String,
-    required: true
-  },
-  TicketQuan: {
-    type: String,
-    required: true
-  },
-  TicketDescription: {
-    type: String,
-    required: true
-  }, 
-  TicketTare: {
-    type: Number,
-    required: true
-  }, 
-  TicketGross: {
+  ticketNum: {
     type: Number,
     required: true
   },
-  TicketNet: {
-    type: Number,
-    
-  }
+  custName: {type: Schema.Types.ObjectId, ref: 'customer'},
+
+  
+  material: {type: Schema.Types.ObjectId, ref: 'material'}
+
 });
 
 module.exports = Ticket = mongoose.model('ticket', TicketSchema);

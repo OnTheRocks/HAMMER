@@ -2,22 +2,30 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const CustomerSchema = new Schema({
-  customerName: {
+  // _id: {
+  //   type: String,
+  //   required: true
+  // },
+  custName: {
     type: String,
     required: true
   },
-  customerStreet: {
+  custStreet: {
     type: String
   },
-  customerCity: {
+  custCity: {
     type: String
   },
-  customerState: {
+  custState: {
     type: String
   },
-  customerZip: {
+  custZip: {
     type: String
-  }
+  },
+  custLocations: [{
+    type: Schema.Types.ObjectId,
+    ref: 'location'
+  }]
 });
 
 module.exports = Customer = mongoose.model('customer', CustomerSchema);
