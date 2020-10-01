@@ -23,33 +23,35 @@ module.exports = {
       }
   }, 
   
-  getCustomer: async(req, res, next) => {
-    const { customerID } = req.params;
-    const customer = await Customer.findById(customerID);
-    res.status(200).json(customer);  
-  },
+  // getCustomer: async(req, res, next) => {
+  //   const { customerID } = req.params;
+  //   const customer = await Customer.findById(customerID);
+  //   res.status(200).json(customer);  
+  
+  // },
+
 
   
-  // Enforce that req.body must contain all the fields.
-  replaceCustomer: async(req, res, next) => {
-    const { customerID } = req.params;
-    const newCustomer = req.body;
-    const result = await Customer.findByIdAndUpdate(customerID, newCustomer);
-    res.status(200).json({ Success: true});
-  },
+  // // Enforce that req.body must contain all the fields.
+  // replaceCustomer: async(req, res, next) => {
+  //   const { customerID } = req.params;
+  //   const newCustomer = req.body;
+  //   const result = await Customer.findByIdAndUpdate(customerID, newCustomer);
+  //   res.status(200).json({ Success: true});
+  // },
 
-  // req.body may contain any number of fields.
-  updateCustomer: async(req, res, next) => {
-    const { customerID } = req.params;
-    const newCustomer = req.body;
-    const result = await Customer.findByIdAndUpdate(customerID, newCustomer);
-    res.status(200).json({ Success: true});
-  },
+  // // req.body may contain any number of fields.
+  // updateCustomer: async(req, res, next) => {
+  //   const { customerID } = req.params;
+  //   const newCustomer = req.body;
+  //   const result = await Customer.findByIdAndUpdate(customerID, newCustomer);
+  //   res.status(200).json({ Success: true});
+  // },
 
-  getCustomerLocations: async(req, res, next) => {
+  // getCustomerLocations: async(req, res, next) => {
 
     
-  }
+  // }
 
 
 };

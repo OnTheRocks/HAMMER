@@ -9,12 +9,12 @@ router.route('/')
   .get(customerController.index)
   .post(customerController.newCustomer);
 
-router.route('/:customerID')
-  .get(customerController.getCustomer)
-  .put(customerController.replaceCustomer)
-  .patch(customerController.updateCustomer);
+// router.route('/:customerID')
+//   .get(customerController.getCustomer)
+//   .put(customerController.replaceCustomer)
+//   .patch(customerController.updateCustomer);
 
 // router.route('/:customerID/locations')
-  // .get(customerController.getCustomerLocations)
+//   .get(customerController.getCustomerLocations)
 
 module.exports = router;
