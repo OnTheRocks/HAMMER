@@ -1,78 +1,64 @@
 const mongoose = require("mongoose");
 const Customer = require('../models/Customer');
+const material = require("./material");
 
 module.exports = {
 // Async/Await
 
-  index: async (req, res, next) => {
-    try {
-    const customers = await Customer.find()
+index: async (req, res, next) => {
+  try {
+    const customers = await Customer.find({})
     res.status(200).json(customers);
   } catch(err) {
-      next(err);
-    }
-  },
+    next(err);
+  }
+},
 
-  newCustomer: async (req, res, next) => {
-    try {
+newCustomer: async (req, res, next) => {
+  try {
     const newCustomer = await Customer(req.body);
     const customer = await newCustomer.save();
     res.status(201).json(customer);
-      } catch(err) {
-          next(err);
-      }
-  }, 
-
-  getCustomer: async(req, res, next) => {
-    try {
-    const { customerID } = req.params;
-    const customer= await Customer.findById(customerID);
-    res.status(200).json(customer);  
-    } catch(err) {
-        next(err);
-    }
+  } catch(err) {
+      next(err);
   }
-  
-  // getCustomer: async(req, res, next) => {
-  //   const { customerID } = req.params;
-  //   const customer = await Customer.findById(customerID);
-  //   res.status(200).json(customer);  
-  
-  // },
+},
 
+getCustomer: async(req, res, next) => {
+  try {
+    const { customerID } = req.params;
+    const customer = await Customer.findById(customerID);
+    res.status(200).json(material);
+  } catch(err) {
+      next(err);
+  }
+},
 
-  
-  // // Enforce that req.body must contain all the fields.
-  // replaceCustomer: async(req, res, next) => {
-  //   const { customerID } = req.params;
-  //   const newCustomer = req.body;
-  //   const result = await Customer.findByIdAndUpdate(customerID, newCustomer);
-  //   res.status(200).json({ Success: true});
-  // },
+replaceCustomer: async(req, res, next) => {
+  try {
+    const { customerID } = req.params;
+    const newCustomer = req.body;
+    const result = await Customer.findByIdAndUpdate(customerID, newCustomer);
+    res.status(200).json({ Success: true });
+  } catch(err) {
+      next(err);
+  }
+}, 
 
-  // // req.body may contain any number of fields.
-  // updateCustomer: async(req, res, next) => {
-  //   const { customerID } = req.params;
-  //   const newCustomer = req.body;
-  //   const result = await Customer.findByIdAndUpdate(customerID, newCustomer);
-  //   res.status(200).json({ Success: true});
-  // },
-
-  // getCustomerLocations: async(req, res, next) => {
-
-    
-  // }
-
+updateCustomer: async(req, res, next) => {
+  try {
+  const { customerID }= req.params;
+  const newCustomer = req.body;
+  const result = await Customer.findByIdAndUpdate(customerID, newCustomer);
+  res.status(200).json({ Success: true });
+  } catch(err) {
+      next(err);
+  }
+}
 
 };
 
-
-
-
-
-
-
-// Promises
+// Promises--------------------------------------------------------------------------
 //   index: (req, res, next) => {
 //     Customer.find({})
 //     .then(customers => {
@@ -95,7 +81,8 @@ module.exports = {
 //   }   
 // };
 
-// callback method
+// callback method--------------------------------------------------------------------
+
 // index: (req, res, next) => {
 //   Customer.find({}, (err, customers) => {
 //     // console.error('err', err);
@@ -112,5 +99,4 @@ module.exports = {
       // }
 //     console.log('Customer', customer);
 //     res.status(201).json(customer);
-//   });
-// }   
+// });

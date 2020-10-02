@@ -24,7 +24,7 @@ module.exports = {
   getMaterial: async(req, res, next) => {
     try {
     const { materialID } = req.params;
-    const material= await Material.findById(materialID);
+    const material = await Material.findById(materialID);
     res.status(200).json(material);  
     } catch(err) {
         next(err);
