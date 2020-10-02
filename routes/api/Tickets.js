@@ -1,27 +1,15 @@
 const express = require('express');
 const router = express.Router();
 
-const Ticket = require('../../models/Ticket');
+const ticketController = require('../../controllers/ticket');
 
-Ticket.deleteMany({})
-    Ticket.create({
-      // _id: "1",
-      ticketNum: 156459,
-      ticketDate: 12/25/1999,
-      // custName: Customer.findOne({custName: 'HuberReadyMix'}),
-      // material: Material.findOne({name: 'Fill Sand'}) 
-    });
+router.route('/')
+  .get(ticketController.index)
+  .post(ticketController.newTicket);
 
-    Ticket.create({
-    //  _id: "2",
-     ticketNum: 16549,
-     ticketDate: 12/25/1999,
-    //  custName: Customer.findOne({custName: 'HuberReadyMix'}),
-    //  material: Material.findOne({name: 'Rock'}) 
-    });
-
-
-
-
+router.route('/:ticketID')
+  .get(ticketController.getTicket)
+  .put(ticketController.replaceTicket)
+  .patch(ticketController.updateTicket);
 
 module.exports = router;

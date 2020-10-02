@@ -1,9 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const materialController = require('../../controllers/material')
-const Material = require('../../models/Material');
-
+const materialController = require('../../controllers/material');
 
 router.route('/')
   .get(materialController.index)

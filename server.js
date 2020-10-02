@@ -7,9 +7,9 @@ const app = express();
 
 const port = process.env.PORT || 3030;
 
-const customers = require('./routes/api/Customers')
-const materials = require('./routes/api/Materials')
-const tickets = require('./routes/api/Tickets')
+const customers = require('./routes/api/Customers');
+const materials = require('./routes/api/Materials');
+const tickets = require('./routes/api/Tickets');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -23,6 +23,7 @@ const DB = process.env.DB;
 app.use('/', customers);
 app.use('/customers', customers);
 app.use('/materials', materials)
+app.use('/tickets', tickets)
 
  
 

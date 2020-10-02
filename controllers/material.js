@@ -2,8 +2,6 @@ const Material = require('../models/Material');
 
 module.exports = {
 
-
-
   index: async (req, res, next) => {
     try {
     const materials = await Material.find({})

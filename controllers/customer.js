@@ -1,4 +1,4 @@
-// const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 const Customer = require('../models/Customer');
 
 module.exports = {
@@ -6,7 +6,7 @@ module.exports = {
 
   index: async (req, res, next) => {
     try {
-    const customers = await Customer.find({})
+    const customers = await Customer.find()
     res.status(200).json(customers);
   } catch(err) {
       next(err);
@@ -22,6 +22,16 @@ module.exports = {
           next(err);
       }
   }, 
+
+  getCustomer: async(req, res, next) => {
+    try {
+    const { customerID } = req.params;
+    const customer= await Customer.findById(customerID);
+    res.status(200).json(customer);  
+    } catch(err) {
+        next(err);
+    }
+  }
   
   // getCustomer: async(req, res, next) => {
   //   const { customerID } = req.params;
