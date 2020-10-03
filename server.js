@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === "production") {
 
 const DB = process.env.DB;
 
-app.use('/', customers);
+// app.use('/', customers);/
 app.use('/customers', customers);
 app.use('/materials', materials)
 app.use('/tickets', tickets)

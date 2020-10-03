@@ -35,6 +35,7 @@ getCustomer: async(req, res, next) => {
 },
 
 replaceCustomer: async(req, res, next) => {
+// req.body must contain all fields
   try {
     const { customerID } = req.params;
     const newCustomer = req.body;
@@ -46,6 +47,7 @@ replaceCustomer: async(req, res, next) => {
 }, 
 
 updateCustomer: async(req, res, next) => {
+// req.body may contain any number of fields
   try {
   const { customerID }= req.params;
   const newCustomer = req.body;

@@ -8,7 +8,7 @@ router.route('/')
   .post(customerController.newCustomer);
 
   router.route('/:customerID')
-  // .get(customerController.getCustomer)
+  .get(customerController.getCustomer)
   .put(customerController.replaceCustomer)
   .patch(customerController.updateCustomer)
 
