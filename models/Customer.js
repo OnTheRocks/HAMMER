@@ -19,23 +19,11 @@ const CustomerSchema = new Schema({
   custZip: {
     type: String
   },
-  custLocation: [{
-    clName: {
-      type: String
-    },
-    clStreet: {
-      type: String
-    },
-    clCity: {
-      type: String
-    }, 
-    clState: {
-      type: String
-    }, 
-    clZip: {
-      type: String
-    }    
+  locations: [{
+    type: Schema.Types.ObjectId,
+    ref: 'location'
   }]
 });
 
-module.exports = Customer = mongoose.model('customer', CustomerSchema);
+const Customer = mongoose.model('customer', CustomerSchema);
+module.exports = Customer;

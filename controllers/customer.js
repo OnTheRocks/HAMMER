@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Customer = require('../models/Customer');
 const material = require("./material");
+const Location = require("../models/Location");
 
 module.exports = {
 // Async/Await
@@ -28,7 +29,7 @@ getCustomer: async(req, res, next) => {
   try {
     const { customerID } = req.params;
     const customer = await Customer.findById(customerID);
-    res.status(200).json(material);
+    res.status(200).json(customer);
   } catch(err) {
       next(err);
   }
@@ -56,8 +57,32 @@ updateCustomer: async(req, res, next) => {
   } catch(err) {
       next(err);
   }
-}
+},
 
+getCustLocation: async(req, res, next) => {
+    const { customerID } = req.params;
+    const customer = await Customer.findById(customerID).populate('locations');
+    res.status(200).json(customer.locations);
+    console.log('Customer', customer);
+},
+
+newCustLocation: async(req, res, next) => {
+  const { customerID } = req.params;
+  // Create a new Location
+  const newCustLocation = new Location(req.body);
+  console.log("New Location", newCustLocation);
+  // Get Customer
+  const customer = await Customer.findById(customerID);
+  // Assign Customer 
+  newCustLocation.customer = customer;
+  // Save Location
+  await newCustLocation.save();
+  // Add location to Customers location array ""
+  customer.locations.push(newCustLocation);
+  // Save Customer
+  await customer.save();
+  res.status(201).json(newCustLocation);
+ }
 };
 
 // Promises--------------------------------------------------------------------------

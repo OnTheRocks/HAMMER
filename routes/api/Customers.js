@@ -12,6 +12,10 @@ router.route('/')
   .put(customerController.replaceCustomer)
   .patch(customerController.updateCustomer)
 
+  router.route('/:customerID/Locations')
+  .get(customerController.getCustLocation)
+  .post(customerController.newCustLocation);
+
   module.exports = router;
 
 
