@@ -77,7 +77,7 @@ newCustLocation: async(req, res, next) => {
   newCustLocation.customer = customer;
   // Save Location
   await newCustLocation.save();
-  // Add location to Customers location array ""
+  // Add location to Customers location array "locations"
   customer.locations.push(newCustLocation);
   // Save Customer
   await customer.save();
