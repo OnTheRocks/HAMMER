@@ -11,6 +11,26 @@ mongoose.connect(DB, { useNewUrlParser: true, useUnifiedTopology: true, useFindA
 
 const materialSeed = [
   {       
+    "name": "3/4 Crushed Rock",
+    "price": "$45",
+    "notes": " "
+  },
+  {       
+    "name": "Oversized Rock",
+    "price": "$10",
+    "notes": "Large Rock over 2 inches."
+  },
+  {       
+    "name": "Fill Sand",
+    "price": "$15",
+    "notes": "Fine sand."
+  },
+  {       
+    "name": "Mason Sand",
+    "price": "$25",
+    "notes": "Clean fine sand."
+  },
+  {       
     "name": "Ice Control Sand",
     "price": "$15",
     "notes": "Ice to spread on icy roads."
