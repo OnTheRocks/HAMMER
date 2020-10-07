@@ -4,15 +4,15 @@ import NavBar from './components/NavBar';
 import Materials from './components/pages/Materials';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import '../src/components/App.css';
 
-function Aoo()  {
+function App()  {
   return (
     <Router>
       <div>
         <NavBar/>
         <Switch>
-          <Route exact pathe={"/materials"}>
+          <Route exact path={"/materials"}>
             <Materials />
           </Route>
         </Switch>
@@ -21,4 +21,4 @@ function Aoo()  {
   );
 }
 
-export default APP;
+export default App;
