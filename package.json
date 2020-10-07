@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
-    "seed": "node scripts/seedDB.js"
+    "matSeed": "node scripts/MaterialDBSeed.js"
   },
   "author": "",
   "license": "ISC",
