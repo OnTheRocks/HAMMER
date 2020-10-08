@@ -12,15 +12,22 @@ module.exports = {
    }
  },
 
- newTicket: async (req, res, next) => {
-   try {
-     const newTicket = await Ticket(req.body);
-     const ticket = await newTicket.save();
-     res.status(201).json(ticket);
-   } catch(err) {
-      next(err);
-   }
+ newTicket: function(req, res) {
+  db.ticket
+  Ticket.create(req.body)
+  .then(dbModel => res.json(dbModel))
+  .catch(err => res.status(422).json(err));
  },
+
+//  newTicket: async (req, res, next) => {
+//    try {
+//      const newTicket = await Ticket(req.body);
+//      const ticket = await newTicket.save();
+//      res.status(201).json(ticket);
+//    } catch(err) {
+//       next(err);
+//    }
+//  },
 
  getTicket: async(req, res, next) => {
   try {
@@ -54,13 +61,19 @@ module.exports = {
    }
  },
 
- deleteTicket: async(req, res, next) =>{
-  db.ticket
-    .findById({ _id: req.params.id })
-    .then(dbModel => dbModel.remove())
-    .then(dbModel => res.json(dbModel))
-    .catch(err => res.status(422).json(err));
- }
+ removeTicket: async(req, res) => {
+  const { ticketID } = req.params;
+  const result = await Ticket.findByIdAndDelete(ticketID);
+  res.status(200).json({ Success: true });
+}
+
+//  deleteTicket: async(req, res, next) =>{
+//   db.ticket
+//     .findById({ _id: req.params.id })
+//     .then(dbModel => dbModel.remove())
+//     .then(dbModel => res.json(dbModel))
+//     .catch(err => res.status(422).json(err));
+//  }
 
  
 

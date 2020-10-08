@@ -61,20 +61,10 @@ function Tickets() {
 // Then reload tickets from the database
   function handleFormSubmit(event) {
     event.preventDefault();
-    if (formObject.TicketDate) {
+    if (formObject.ticketDate) {
       API.saveTicket({
-        TicketNum: formObject.TicketNum,
-        // TicketDate: formObject.TicketDate,
-        // TicketCustName: formObject.TicketCustName,
-        // TicketBillingStreet: formObject.TicketBillingStreet,
-        // TicketBillingCity: formObject.TicketBillingCity,
-        // TicketBillingState: formObject.TicketBillingState,
-        // TicketBillingZip: formObject.TicketBillingZip,
-        // TicketQuan: formObject.TicketQuan,
-        // TicketDescription: formObject.TicketDescription,
-        // TicketTare: formObject.TicketTare,
-        // TicketGross: formObject.TicketGross,
-        // TicketNet: formObject.TicketGross - formObject.TicketTare
+        ticketDate: formObject.ticketDate,
+        ticketNum: formObject.ticketNum
       })
         .then(res => loadTickets())
         .catch(err => console.log(err));
@@ -91,12 +81,12 @@ function Tickets() {
           <form>
             <Input
               onChange={handleInputChange}
-              name="TicketDate"
+              name="ticketDate"
               placeholder="Date"
             />
             <Input
               onChange={handleInputChange}
-              name="TicketNum"
+              name="ticketNum"
               placeholder="Ticket Number (required)"
             />
             {/* <Input
@@ -146,7 +136,7 @@ function Tickets() {
             /> */}
            
             <FormBtn
-              disabled={!(formObject.TicketNum)}
+              disabled={!(formObject.ticketNum)}
               onClick={handleFormSubmit}
             >
               Submit Ticket
@@ -163,7 +153,10 @@ function Tickets() {
                   <ListItem key={tickets._id}>
                     <Link to={"/Tickets/" + tickets._id}>
                       <strong>
-                        {tickets.TicketDate} -- {tickets.TicketNum}
+                        {tickets.ticketDate};
+                        <br></br>
+                        {tickets.ticketNum};
+
                       </strong>
                     </Link>
                     <DeleteBtn onClick={() => deleteTicket(tickets._id)} />

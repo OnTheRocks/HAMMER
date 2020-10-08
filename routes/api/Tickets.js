@@ -11,6 +11,6 @@ router.route('/:ticketID')
   .get(ticketController.getTicket)
   .put(ticketController.replaceTicket)
   .patch(ticketController.updateTicket)
-  .delete(ticketController.deleteTicket);
+  .delete(ticketController.removeTicket);
 
 module.exports = router;

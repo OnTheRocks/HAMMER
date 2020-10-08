@@ -21,12 +21,17 @@ export default {
    getTickets: function() {
      return axios.get("/Tickets");
   },
-  // Saves a ticket to the database
-  saveTicket: function(ticketData) {
-    return axios.post("/Tickets", ticketData);
+  // Gets the ticket with the given id
+  getTicket: function(id) {
+    return axios.get("Tickets/" + id);
   },
+  
   // Deletes the ticket with the given id
   deleteTicket: function(id) {
     return axios.delete("/Tickets/" + id);
+  },
+  // Saves a ticket to the database
+  saveTicket: function(ticketData) {
+    return axios.post("/Tickets", ticketData);
   },
 };
