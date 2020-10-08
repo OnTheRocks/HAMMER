@@ -29,7 +29,7 @@ const NavBar = (props) => {
               <NavLink href="/Customers">Customers</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/components/Materials">Materials</NavLink>
+              <NavLink href="/Materials">Materials</NavLink>
             </NavItem>
           </Nav>
           <NavbarText>Nathan Huber</NavbarText>

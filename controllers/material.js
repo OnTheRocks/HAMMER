@@ -60,7 +60,14 @@ module.exports = {
     } catch(err) {
         next(err);
     }
+  },
+
+  removeMaterial: async(req, res) => {
+    const { materialID } = req.params;
+    const result = await Material.findByIdAndDelete(materialID);
+    res.status(200).json({ Success: true });
   }
+
 
 };
 

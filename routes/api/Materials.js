@@ -11,6 +11,7 @@ router.route('/')
   .get(materialController.getMaterial)
   .put(materialController.replaceMaterial)
   .patch(materialController.updateMaterial)
+  .delete(materialController.removeMaterial);
 
 
 module.exports = router;

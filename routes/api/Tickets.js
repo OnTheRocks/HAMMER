@@ -10,6 +10,7 @@ router.route('/')
 router.route('/:ticketID')
   .get(ticketController.getTicket)
   .put(ticketController.replaceTicket)
-  .patch(ticketController.updateTicket);
+  .patch(ticketController.updateTicket)
+  .delete(ticketController.deleteTicket);
 
 module.exports = router;

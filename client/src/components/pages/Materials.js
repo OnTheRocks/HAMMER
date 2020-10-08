@@ -9,7 +9,7 @@ import { Input, FormBtn } from "../Form";
 
 function Materials() {
   //  Setting initial state
-  const [materials, setMaterial] = useState([])
+  const [materials, setMaterials] = useState([])
   const [formObject, setFormObject] = useState({})
 
   // Load all Materials and store them with setMaterial
@@ -21,7 +21,7 @@ function Materials() {
   function loadMaterials() {
     API.getMaterials()
     .then(res =>
-      setMaterial(res.data)
+      setMaterials(res.data)
     )
     .catch(err => console.log(err));
   };
@@ -91,8 +91,8 @@ function Materials() {
             </Jumbotron>
               {materials.length ? (
                 <List>
-                  {materials.map(material => (      
-                    <ListItem key={material._id}>
+                  {materials.map(materials => (      
+                    <ListItem key={materials._id}>
                       <Link to={"/Materials/" + materials._id}>
                         <strong>
                           {materials.name}

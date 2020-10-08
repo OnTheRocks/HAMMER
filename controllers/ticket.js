@@ -1,3 +1,4 @@
+const { db } = require('../models/Ticket');
 const Ticket = require('../models/Ticket');
 
 module.exports = {
@@ -51,7 +52,18 @@ module.exports = {
    } catch(err) {
       next(err);
    }
+ },
+
+ deleteTicket: async(req, res, next) =>{
+  db.ticket
+    .findById({ _id: req.params.id })
+    .then(dbModel => dbModel.remove())
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
  }
+
+ 
+
  
  
 };
