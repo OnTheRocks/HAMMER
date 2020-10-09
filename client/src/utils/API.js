@@ -23,7 +23,7 @@ export default {
   },
   // Gets the ticket with the given id
   getTicket: function(id) {
-    return axios.get("Tickets/" + id);
+    return axios.get("/Tickets/" + id);
   },
   
   // Deletes the ticket with the given id

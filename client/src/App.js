@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import Materials from './components/pages/Materials';
 import MatDetails from './components/pages/MatDetails';
 import Tickets from './components/pages/Tickets';
+import TicketDetails from './components/pages/TicketDetails';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../src/components/App.css';
@@ -22,6 +23,9 @@ function App()  {
           </Route>
           <Route exact path={"/tickets"}>
             <Tickets />
+          </Route>
+          <Route exact path={"/tickets/:id"}>
+            <TicketDetails />
           </Route>
         </Switch>
       </div>
