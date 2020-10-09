@@ -11,6 +11,7 @@ router.route('/')
   .get(customerController.getCustomer)
   .put(customerController.replaceCustomer)
   .patch(customerController.updateCustomer)
+  .delete(customerController.removeCustomer);
 
   router.route('/:customerID/Locations')
   .get(customerController.getCustLocation)

@@ -66,6 +66,12 @@ getCustLocation: async(req, res, next) => {
     console.log('Customer', customer);
 },
 
+removeCustomer: async(req, res) => {
+  const { customerID } = req.params;
+  const result = await Customer.findByIdAndDelete(customerID);
+  res.status(200).json({ Success: true });
+},
+
 newCustLocation: async(req, res, next) => {
   const { customerID } = req.params;
   // Create a new Location
