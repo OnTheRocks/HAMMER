@@ -1,52 +1,62 @@
 require('dotenv').config();
 const mongoose = require("mongoose");
-const Material = require("../models/Material");
+const Customer = require("../models/Customer");
 
 
-// This file empties the Material collection and inserts the following Materials:
+// This file empties the Customer collection and inserts the following Customers:
 
 const DB = process.env.DB;
 
 mongoose.connect(DB, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
 
-const materialSeed = [
+const customerSeed = [
   {       
-    "name": "3/4 Crushed Rock",
-    "price": "$45",
-    "notes": " "
+    "custName": "Concrete Industries",
+    "custStreet": "111 JC St.",
+    "custCity": "Garden City",
+    "custState": "KS",
+    "custZip" : "67846",
+    "locations": ['5f7bfa929b9b6a21a9a8bc09', '5f7bfdb612808c2141a498ee' ]
   },
   {       
-    "name": "Oversized Rock",
-    "price": "$10",
-    "notes": "Large Rock over 2 inches."
+    "custName": "Ozinga",
+    "custStreet": "2222 S Lumber St.",
+    "custCity": "Chicago",
+    "custState": "IL",
+    "custZip" : "60616",
+    "locations": []
   },
   {       
-    "name": "Fill Sand",
-    "price": "$15",
-    "notes": "Fine sand."
+    "custName": "Lee Construction Inc.",
+    "custStreet": "413 Campus Dr.",
+    "custCity": "Garden City",
+    "custState": "KS",
+    "custZip" : "67846",
+    "locations": []
   },
   {       
-    "name": "Mason Sand",
-    "price": "$25",
-    "notes": "Clean fine sand."
+    "custName": "Dick Construction Inc.",
+    "custStreet": "1805 E Mary St.",
+    "custCity": "Garden City",
+    "custState": "KS",
+    "custZip" : "67846",
+    "locations": []
   },
   {       
-    "name": "Ice Control Sand",
-    "price": "$15",
-    "notes": "Ice to spread on icy roads."
-  },
-  {       
-    "name": "Concrete Sand",
-    "price": "$25",
-    "notes": "Standard sand to mix into concrete."
+    "custName": "Dunlap Construction",
+    "custStreet": "2006 N Commanche Dr",
+    "custCity": "Garden City",
+    "custState": "KS",
+    "custZip" : "67846",
+    "locations": []
   }
 ];
 
-Material
-  Material.deleteMany({})
-  .then(() => Material.collection.insertMany(materialSeed))
+Customer
+  Customer.deleteMany({})
+  .then(() => Customer.collection.insertMany(customerSeed))
   .then(data => {
-    console.log(data.result.n + " Materials added to the database!");
+    console.log(data.result.n + " Customers added to the database!");
     process.exit(0);
   })
   .catch(err => {
