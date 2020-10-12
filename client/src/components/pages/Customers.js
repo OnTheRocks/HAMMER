@@ -72,7 +72,7 @@ function Customers() {
               <Input
                 onChange={handleInputChange}
                 name="custStreet"
-                placeholder="Street"
+                placeholder="Street Address"
               />
               <Input
                 onChange={handleInputChange}
@@ -82,12 +82,12 @@ function Customers() {
               <Input
                 onChange={handleInputChange}
                 name="custState"
-                placeholder="City"
+                placeholder="State"
               />
               <Input
                 onChange={handleInputChange}
                 name="custZip"
-                placeholder="Zipcode"
+                placeholder="Zip Code"
               />
               <FormBtn
                 disabled={!(formObject.custName)}
