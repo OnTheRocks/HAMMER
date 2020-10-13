@@ -13,23 +13,15 @@ function CustomerDetails(props) {
   const {id} = useParams()
   useEffect(() => {
     API.getCustomer(id)
-    // API.getCustLocation(id)
-    
-      .then(res => setCustomers(res.data))
-      
+      .then(res => setCustomers(res.data))      
       .catch(err => console.log(err));
   }, [id])
-
 
   useEffect(() => {
-    // API.getCustomer(id)
     API.getCustLocation(id)
       .then(res => setLocations(res.data))
-      .catch(err => console.log(err));
-      
+      .catch(err => console.log(err));      
   }, [id])
-
-
   return (
     <Container fluid>
       <Row>
@@ -61,8 +53,7 @@ function CustomerDetails(props) {
                 {customers.locations} 
                   <br></br>
                 {locations.customer} 
-                  <br></br>
-                  
+                  <br></br>                  
                 {customers._id}
             </p>
           </article>
@@ -76,7 +67,4 @@ function CustomerDetails(props) {
     </Container>
   );
 }
-
-
-
 export default CustomerDetails

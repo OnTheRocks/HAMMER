@@ -4,6 +4,8 @@ import { Col, Row, Container } from "../Grid";
 import Jumbotron from "../Jumbotron";
 import API from "../../utils/API";
 
+const moment = require('moment');
+
 function TicketDetails(props) {
   const [tickets, setTickets] = useState({})
 
@@ -16,6 +18,8 @@ function TicketDetails(props) {
       .catch(err => console.log(err));
   }, [id])
 
+  const ticketDate = moment(tickets.ticketDate).format("MM-DD-YYYY")
+  
   return (
     <Container fluid>
       <Row>
@@ -35,11 +39,11 @@ function TicketDetails(props) {
             <h1>Ticket Details</h1>
             <p>
               <strong>
-               - {tickets.ticketNum} 
+               {tickets.ticketNum}
                 <br></br>
-                {tickets.ticketDate}              
+                {tickets.ticketDate} - - - {ticketDate}
                 <br></br>
-                {tickets._id}
+               {tickets._id}
                </strong>  
             </p>
           </article>
@@ -53,7 +57,4 @@ function TicketDetails(props) {
     </Container>
   );
 }
-
-
-
 export default TicketDetails

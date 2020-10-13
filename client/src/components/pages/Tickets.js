@@ -7,6 +7,10 @@ import { Col, Row, Container } from "../Grid";
 import { List, ListItem } from "../List";
 import { Input, FormBtn } from "../Form";
 
+const moment = require('moment');
+
+
+
 function Tickets() {
   // Setting our component's initial state
   const [tickets, setTickets] = useState([])
@@ -19,11 +23,6 @@ function Tickets() {
     loadTickets()
   }, [])
 
-    // Load all customers and store them with setCustomers
-    // useEffect(() => {
-    //   loadCustomers()
-    // }, [])
-
   // Loads all tickets and sets them to tickets
   function loadTickets() {
     API.getTickets()
@@ -32,15 +31,6 @@ function Tickets() {
       )
       .catch(err => console.log(err));
   };  
-
-    // Loads all customers and sets them to customers
-    // function loadCustomers() {
-    //   API.getCustomers()
-    //     .then(res => 
-    //       setCustomers(res.data)
-    //     )
-    //     .catch(err => console.log(err));
-    // };
 
   // Deletes a ticket from the database with a given id, then reloads tickets from the db
   function deleteTicket(id) {
@@ -88,53 +78,7 @@ function Tickets() {
               onChange={handleInputChange}
               name="ticketNum"
               placeholder="Ticket Number (required)"
-            />
-            {/* <Input
-              onChange={handleInputChange}
-              name="TicketCustName"
-              placeholder="Customer Name"
-            /> */}
-            {/* <Input
-              onChange={handleInputChange}
-              name="TicketBillingStreet"
-              placeholder="Street"
-            />
-            <Input
-              onChange={handleInputChange}
-              name="TicketBillingCity"
-              placeholder="City"
-            />
-            <Input
-              onChange={handleInputChange}
-              name="TicketBillingState"
-              placeholder="State"
-            />
-            <Input
-              onChange={handleInputChange}
-              name="TicketBillingZip"
-              placeholder="Zip"
-            /> */}
-            {/* <Input
-              onChange={handleInputChange}
-              name="TicketDescription"
-              placeholder="Description"
-            />
-            <Input
-              onChange={handleInputChange}
-              name="TicketQuan"
-              placeholder="Quantity"
-            /> 
-            <Input
-              onChange={handleInputChange}
-              name="TicketTare"
-              placeholder="Tare Weight"
-            />
-            <Input
-              onChange={handleInputChange}
-              name="TicketGross"
-              placeholder="Gross Weight"
-            /> */}
-           
+            />          
             <FormBtn
               disabled={!(formObject.ticketNum)}
               onClick={handleFormSubmit}
@@ -153,38 +97,15 @@ function Tickets() {
                   <ListItem key={tickets._id}>
                     <Link to={"/Tickets/" + tickets._id}>
                       <strong>
-                        {tickets.ticketDate};
+                      {tickets.ticketDate} - - - - 
                         <br></br>
-                        {tickets.ticketNum};
+                        Ticket# - {tickets.ticketNum}
 
                       </strong>
                     </Link>
-                    <DeleteBtn onClick={() => deleteTicket(tickets._id)} />
+                    <DeleteBtn onClick={() => deleteTicket(tickets._id)}/>
                   </ListItem>
                 ))}
-
-
-
-
-
-{/* {customers.map(customers => (
-                  <ListItem key={customers._id}>
-                    <Link to={"/Customers/" + customers._id}>
-                      <strong>
-                        {customers.customerName}
-                      </strong>
-                    </Link>
-                   </ListItem>
-                ))} */}
-{/* 
-          <form>
-            <Input
-              onChange={handleInputChange}
-              name="TicketDate"
-              placeholder="Date"
-            />     
-          </form> */}
-
               </List>
             ) : (
               <h3>No Results to Display</h3>

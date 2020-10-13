@@ -10,23 +10,23 @@ mongoose.connect(DB, { useNewUrlParser: true, useUnifiedTopology: true, useFindA
 
 const ticketSeed = [
   {       
-    "ticketDate": new Date(),
+    "ticketDate": "7/4/2020",
     "ticketNum": 12345
   },
   {       
-    "ticketDate": 10/1/2020,
+    "ticketDate": "10/1/2020",
     "ticketNum": 12346
   },
   {       
-    "ticketDate": 10/2/2020,
+    "ticketDate": "10/2/2020",
     "ticketNum": 12347
   },
   {       
-    "ticketDate": 10/5/2020,
+    "ticketDate": "10/5/2020",
     "ticketNum": 12348
   },
   {       
-    "ticketDate": 10/10/2020,
+    "ticketDate": "10/10/2020",
     "ticketNum": 12349
   },
   
