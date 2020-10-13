@@ -25,7 +25,13 @@ export default {
   // Gets the customer with the given id
   getCustomer: function(id) {
     return axios.get("/Customers/" + id);
-  },  
+  }, 
+
+  getCustLocation: function(id) {
+    return axios.get("/Customers/" + id + "/locations");
+  },
+  
+  
   // Deletes the customer with the given id
   deleteCustomer: function(id) {
     return axios.delete("/Customers/" + id);

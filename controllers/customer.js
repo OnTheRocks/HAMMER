@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Customer = require('../models/Customer');
-const material = require("./material");
 const Location = require("../models/Location");
 
 module.exports = {

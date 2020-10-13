@@ -1,8 +1,6 @@
 require('dotenv').config();
 const mongoose = require("mongoose");
 const Ticket = require('../models/Ticket');
-const Material = require("../models/Ticket");
-
 
 // This file empties the Material collection and inserts the following Materials:
 
@@ -12,7 +10,7 @@ mongoose.connect(DB, { useNewUrlParser: true, useUnifiedTopology: true, useFindA
 
 const ticketSeed = [
   {       
-    "ticketDate": 2020-10-1,
+    "ticketDate": new Date(),
     "ticketNum": 12345
   },
   {       
