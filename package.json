@@ -7,8 +7,10 @@
     "start": "nodemon server.js",
     "dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
-    "matSeed": "node scripts/MaterialDBSeed.js",
-    "custSeed": "node scripts/CustomerDBSeed.js"
+    
+    "ticketSeed": "node scripts/TicketDBSeed.js",
+    "custSeed": "node scripts/CustomerDBSeed.js",
+    "matSeed": "node scripts/MaterialDBSeed.js"
   },
   "author": "",
   "license": "ISC",

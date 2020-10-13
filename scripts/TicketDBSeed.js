@@ -1,6 +1,6 @@
 require('dotenv').config();
 const mongoose = require("mongoose");
-const Material = require("../models/Material");
+const Material = require("../models/Ticket");
 
 
 // This file empties the Material collection and inserts the following Materials:
