@@ -1,5 +1,6 @@
 require('dotenv').config();
 const mongoose = require("mongoose");
+const Ticket = require('../models/Ticket');
 const Material = require("../models/Ticket");
 
 
@@ -9,44 +10,35 @@ const DB = process.env.DB;
 
 mongoose.connect(DB, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
 
-const materialSeed = [
+const ticketSeed = [
   {       
-    "name": "3/4 Crushed Rock",
-    "price": "$45",
-    "notes": " "
+    "ticketDate": 2020-10-1,
+    "ticketNum": 12345
   },
   {       
-    "name": "Oversized Rock",
-    "price": "$10",
-    "notes": "Large Rock over 2 inches."
+    "ticketDate": 10/1/2020,
+    "ticketNum": 12346
   },
   {       
-    "name": "Fill Sand",
-    "price": "$15",
-    "notes": "Fine sand."
+    "ticketDate": 10/2/2020,
+    "ticketNum": 12347
   },
   {       
-    "name": "Mason Sand",
-    "price": "$25",
-    "notes": "Clean fine sand."
+    "ticketDate": 10/5/2020,
+    "ticketNum": 12348
   },
   {       
-    "name": "Ice Control Sand",
-    "price": "$15",
-    "notes": "Ice to spread on icy roads."
+    "ticketDate": 10/10/2020,
+    "ticketNum": 12349
   },
-  {       
-    "name": "Concrete Sand",
-    "price": "$25",
-    "notes": "Standard sand to mix into concrete."
-  }
+  
 ];
 
-Material
-  Material.deleteMany({})
-  .then(() => Material.collection.insertMany(materialSeed))
+Ticket
+  Ticket.deleteMany({})
+  .then(() => Ticket.collection.insertMany(ticketSeed))
   .then(data => {
-    console.log(data.result.n + " Materials added to the database!");
+    console.log(data.result.n + " Tickets added to the database!");
     process.exit(0);
   })
   .catch(err => {

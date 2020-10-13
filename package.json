@@ -6,8 +6,8 @@
   "scripts": {
     "start": "nodemon server.js",
     "dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
-    "client": "cd client && npm run start",
-    
+    "client": "cd client && npm run start",    
+    "allSeed": "node scripts/SeedAll.js",
     "ticketSeed": "node scripts/TicketDBSeed.js",
     "custSeed": "node scripts/CustomerDBSeed.js",
     "matSeed": "node scripts/MaterialDBSeed.js"
