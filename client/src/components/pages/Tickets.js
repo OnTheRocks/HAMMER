@@ -14,8 +14,6 @@ function Tickets(props) {
   const [tickets, setTickets] = useState([])
   const [formObject, setFormObject] = useState({})
   // const [customers, setCustomers] = useState([])
-  console.log("Huh", (tickets.ticketDate));
-
 
   // Load all tickets and store them with setTickets
   useEffect(() => {
@@ -44,28 +42,20 @@ function Tickets(props) {
    setFormObject({...formObject, [name]: value})
  };
 
-
-
 // When the form is submitted, use the API.saveTicket method to save the ticket data
 // Then reload tickets from the database
   function handleFormSubmit(event) {
     event.preventDefault();
     if (formObject.ticketDate) {
       API.saveTicket({
-        // ticketDate: formObject.ticketDate,
+        ticketDate: formObject.ticketDate,
         ticketNum: formObject.ticketNum
       })
         .then(res => loadTickets())
         .catch(err => console.log(err));
     }
   };
-
-  const ticDate= moment(tickets.ticketDate).format("MM-DD-YYYY")
-
-
   return (
-    
-
     <Container fluid>
       <Row>
         <Col size="md-6">
@@ -101,7 +91,7 @@ function Tickets(props) {
                   <ListItem key={tickets._id}>
                     <Link to={"/Tickets/" + tickets._id}>
                       <strong>
-                      {tickets.ticketDate} - - - - {ticDate}
+                      Ticket Date - {moment(tickets.ticketDate).format("MM-DD-YYYY")}
                         <br></br>
                       Ticket# - {tickets.ticketNum}
                       </strong>

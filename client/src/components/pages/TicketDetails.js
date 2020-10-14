@@ -8,7 +8,8 @@ const moment = require('moment');
 
 function TicketDetails(props) {
   const [tickets, setTickets] = useState({})
-  console.log("Huh", (tickets.ticketDate));
+  
+
 
   // When this component mounts, grab the ticket with the _id of props.match.params.id
   // e.g. localhost:3000/Tickets/599dcb67f0f16317844583fc
@@ -18,11 +19,9 @@ function TicketDetails(props) {
       .then(res => setTickets(res.data))
       .catch(err => console.log(err));
   }, [id])
+// Formattig the Date-----------------------------------------------------
 
 
-
-  const ticketDate = moment(tickets.ticketDate).format("MM-DD-YYYY")
-  
   return (
     <Container fluid>
       <Row>
@@ -42,9 +41,13 @@ function TicketDetails(props) {
             <h1>Ticket Details</h1>
             <p>
               <strong>
+                <br></br>
                {tickets.ticketNum}
                 <br></br>
-                {tickets.ticketDate} - - - {ticketDate}
+               {moment(tickets.ticketDate).format("MM-DD-YYYY")}
+                <br></br>
+                <br></br>
+                <br></br>
                 <br></br>
                {tickets._id}
                </strong>  
