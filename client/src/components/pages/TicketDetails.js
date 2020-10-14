@@ -8,6 +8,7 @@ const moment = require('moment');
 
 function TicketDetails(props) {
   const [tickets, setTickets] = useState({})
+  console.log("Huh", (tickets.ticketDate));
 
   // When this component mounts, grab the ticket with the _id of props.match.params.id
   // e.g. localhost:3000/Tickets/599dcb67f0f16317844583fc
@@ -17,6 +18,8 @@ function TicketDetails(props) {
       .then(res => setTickets(res.data))
       .catch(err => console.log(err));
   }, [id])
+
+
 
   const ticketDate = moment(tickets.ticketDate).format("MM-DD-YYYY")
   

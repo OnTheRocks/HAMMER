@@ -9,13 +9,12 @@ import { Input, FormBtn } from "../Form";
 
 const moment = require('moment');
 
-
-
-function Tickets() {
+function Tickets(props) {
   // Setting our component's initial state
   const [tickets, setTickets] = useState([])
   const [formObject, setFormObject] = useState({})
   // const [customers, setCustomers] = useState([])
+  console.log("Huh", (tickets.ticketDate));
 
 
   // Load all tickets and store them with setTickets
@@ -53,7 +52,7 @@ function Tickets() {
     event.preventDefault();
     if (formObject.ticketDate) {
       API.saveTicket({
-        ticketDate: formObject.ticketDate,
+        // ticketDate: formObject.ticketDate,
         ticketNum: formObject.ticketNum
       })
         .then(res => loadTickets())
@@ -61,7 +60,12 @@ function Tickets() {
     }
   };
 
+  const ticDate= moment(tickets.ticketDate).format("MM-DD-YYYY")
+
+
   return (
+    
+
     <Container fluid>
       <Row>
         <Col size="md-6">
@@ -97,10 +101,9 @@ function Tickets() {
                   <ListItem key={tickets._id}>
                     <Link to={"/Tickets/" + tickets._id}>
                       <strong>
-                      {tickets.ticketDate} - - - - 
+                      {tickets.ticketDate} - - - - {ticDate}
                         <br></br>
-                        Ticket# - {tickets.ticketNum}
-
+                      Ticket# - {tickets.ticketNum}
                       </strong>
                     </Link>
                     <DeleteBtn onClick={() => deleteTicket(tickets._id)}/>
@@ -114,7 +117,6 @@ function Tickets() {
         </Row>
       </Container>
     );
-
 }
 
 export default Tickets;
