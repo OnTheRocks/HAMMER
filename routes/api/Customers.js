@@ -14,8 +14,11 @@ router.route('/')
   .delete(customerController.removeCustomer);
 
   router.route('/:customerID/Locations')
-  .get(customerController.getCustLocation)
+  .get(customerController.getCustLocations)
   .post(customerController.newCustLocation);
+
+  router.route('/:customerID/Locations/:locationID')
+  .get(customerController.getCustLocation)
 
   module.exports = router;
 

@@ -22,6 +22,9 @@ function CustomerDetails(props) {
       .then(res => setLocations(res.data))
       .catch(err => console.log(err));      
   }, [id])
+
+console.log("Customer Locations - ", customers.locations);
+
   return (
     <Container fluid>
       <Row>

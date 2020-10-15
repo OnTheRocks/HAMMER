@@ -58,9 +58,9 @@ updateCustomer: async(req, res, next) => {
   }
 },
 
-getCustLocation: async(req, res, next) => {
+getCustLocations: async(req, res, next) => {
     const { customerID } = req.params;
-    const customer = await Customer.findById(customerID).populate('locations');
+    const customer = await Customer.findById(customerID).populate('location');
     res.status(200).json(customer.locations);
     console.log('Customer', customer);
 },
@@ -87,7 +87,15 @@ newCustLocation: async(req, res, next) => {
   // Save Customer
   await customer.save();
   res.status(201).json(newCustLocation);
- }
+ },
+
+ getCustLocation: async(req, res, next) => {
+  const { locationID } = req.params;
+  const location = await Location.findById(locationID).populate('location')
+  res.status(200).json(location);
+  console.log('Customer', location.customer);
+},
+ 
 };
 
 // Promises--------------------------------------------------------------------------
