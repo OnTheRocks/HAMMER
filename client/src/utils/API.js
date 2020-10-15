@@ -27,7 +27,7 @@ export default {
     return axios.get("/Customers/" + id);
   }, 
 
-  getCustLocation: function(id) {
+  getCustLocations: function(id) {
     return axios.get("/Customers/" + id + "/locations");
   },
   

@@ -6,7 +6,7 @@ import API from "../../utils/API";
 
 function CustomerDetails(props) {
   const [customers, setCustomers] = useState({})
-  const [locations, setLocations] = useState({})
+
 
   // When this component mounts, grab the customer with the _id of props.match.params.id
   // e.g. localhost:3000/Customers/599dcb67f0f16317844583fc
@@ -16,14 +16,11 @@ function CustomerDetails(props) {
       .then(res => setCustomers(res.data))      
       .catch(err => console.log(err));
   }, [id])
+  
 
-  useEffect(() => {
-    API.getCustLocation(id)
-      .then(res => setLocations(res.data))
-      .catch(err => console.log(err));      
-  }, [id])
 
-console.log("Customer Locations - ", customers.locations);
+
+
 
   return (
     <Container fluid>
@@ -55,7 +52,7 @@ console.log("Customer Locations - ", customers.locations);
                   <br></br>
                 {customers.locations} 
                   <br></br>
-                {locations.customer} 
+                {/* {locations.customer}  */}
                   <br></br>                  
                 {customers._id}
             </p>
