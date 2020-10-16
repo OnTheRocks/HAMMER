@@ -93,7 +93,7 @@ newCustLocation: async(req, res, next) => {
   const { locationID } = req.params;
   const location = await Location.findById(locationID).populate('customer')
   res.status(200).json(location);
-  console.log('Customer', customer);
+  console.log('Customer', location.customer);
 },
  
 };

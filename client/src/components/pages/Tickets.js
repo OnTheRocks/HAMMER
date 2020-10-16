@@ -49,7 +49,8 @@ function Tickets(props) {
     if (formObject.ticketDate) {
       API.saveTicket({
         ticketDate: formObject.ticketDate,
-        ticketNum: formObject.ticketNum
+        ticketNum: formObject.ticketNum,
+        ticketCust: formObject.ticketCust
       })
         .then(res => loadTickets())
         .catch(err => console.log(err));
@@ -73,6 +74,11 @@ function Tickets(props) {
               name="ticketNum"
               placeholder="Ticket Number (required)"
             />          
+            <Input
+              onChange={handleInputChange}
+              name="ticketCust"
+              placeholder="Customer Name"
+            />          
             <FormBtn
               disabled={!(formObject.ticketNum)}
               onClick={handleFormSubmit}
@@ -94,6 +100,8 @@ function Tickets(props) {
                       Ticket Date - {moment(tickets.ticketDate).format("MM-DD-YYYY")}
                         <br></br>
                       Ticket# - {tickets.ticketNum}
+                      <br></br>
+                      {tickets.ticketCust}
                       </strong>
                     </Link>
                     <DeleteBtn onClick={() => deleteTicket(tickets._id)}/>

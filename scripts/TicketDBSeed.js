@@ -11,23 +11,28 @@ mongoose.connect(DB, { useNewUrlParser: true, useUnifiedTopology: true, useFindA
 const ticketSeed = [
   {       
     "ticketDate": "7/4/2020",
-    "ticketNum": 12345
+    "ticketNum": 12345,
+    "ticketCust": "Concrete Industries"
   },
   {       
     "ticketDate": "10/1/2020",
-    "ticketNum": 12346
+    "ticketNum": 12346,
+    "ticketCust": "Dick Construction Inc."
   },
   {       
     "ticketDate": "10/2/2020",
-    "ticketNum": 12347
+    "ticketNum": 12347,
+    "ticketCust": "Ozinga"
   },
   {       
     "ticketDate": "10/5/2020",
-    "ticketNum": 12348
+    "ticketNum": 12348,
+    "ticketCust": "Lee Construction Inc."
   },
   {       
     "ticketDate": "10/10/2020",
-    "ticketNum": 12349
+    "ticketNum": 12349,
+    "ticketCust": "Dunlap Construction"
   },
   
 ];

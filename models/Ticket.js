@@ -11,6 +11,9 @@ const TicketSchema = new Schema ({
   ticketNum: {
     type: Number,
     required: true
+  }, 
+  ticketCust: {
+    type: String
   }
 });
 

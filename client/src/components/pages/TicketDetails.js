@@ -46,6 +46,7 @@ function TicketDetails(props) {
                 <br></br>
                {moment(tickets.ticketDate).format("MM-DD-YYYY")}
                 <br></br>
+                {tickets.ticketCust}
                 <br></br>
                 <br></br>
                 <br></br>
