@@ -5,7 +5,7 @@ import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../Grid";
 import { List, ListItem } from "../List";
-import { Input, FormBtn } from "../Form";
+import { Input, Select, FormBtn } from "../Form";
 
 const moment = require('moment');
 
@@ -74,11 +74,23 @@ function Tickets(props) {
               name="ticketNum"
               placeholder="Ticket Number (required)"
             />          
-            <Input
+            {/* <Input
               onChange={handleInputChange}
               name="ticketCust"
               placeholder="Customer Name"
-            />          
+            />  */}
+            <select
+              onChange={handleInputChange}
+              name="ticketCust"
+              placeholder= "Customer Name"
+              style={{width: '100%', height: 35, marginBottom: 15}}
+            > 
+                <option selected value="Customer">Customer</option>
+                <option value="grapefruit">Grapefruit</option>
+                <option value="lime">Lime</option>                
+                <option value="mango">Mango</option>
+            </select> 
+
             <FormBtn
               disabled={!(formObject.ticketNum)}
               onClick={handleFormSubmit}

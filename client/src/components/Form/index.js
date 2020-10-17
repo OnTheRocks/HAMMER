@@ -13,7 +13,7 @@ export function Input(props) {
 export function Select(props) {
   return (
     <div className="form-group">
-      <Select className="form-control"{...props} />
+      <Select className="form-control" {...props} />
     </div>  
   )
 }

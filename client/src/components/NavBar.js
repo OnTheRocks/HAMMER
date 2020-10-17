@@ -32,7 +32,7 @@ const NavBar = (props) => {
               <NavLink href="/Materials">Materials</NavLink>
             </NavItem>
           </Nav>
-          <NavbarText>Nathan Huber</NavbarText>
+          <NavbarText >Nathan Huber</NavbarText>
         </Collapse>
       </Navbar>
     </div>
