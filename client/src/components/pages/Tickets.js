@@ -5,7 +5,7 @@ import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../Grid";
 import { List, ListItem } from "../List";
-import { Input, Select, FormBtn } from "../Form";
+import { Input, FormBtn } from "../Form";
 
 const moment = require('moment');
 
@@ -13,7 +13,9 @@ function Tickets(props) {
   // Setting our component's initial state
   const [tickets, setTickets] = useState([])
   const [formObject, setFormObject] = useState({})
-  // const [customers, setCustomers] = useState([])
+  const [customers, setCustomers] = useState([])
+
+  console.log("Customerss - ", customers);
 
   // Load all tickets and store them with setTickets
   useEffect(() => {
@@ -29,6 +31,20 @@ function Tickets(props) {
       .catch(err => console.log(err));
   };  
 
+  // Load all Customers and store them with setCustomer
+  useEffect(() => {
+    loadCustomers()
+  }, [])
+
+  // Loads all customers and sets them to customers
+  function loadCustomers() {
+    API.getCustomers()
+    .then(res =>
+      setCustomers(res.data)
+    )
+    .catch(err => console.log(err));
+  };
+
   // Deletes a ticket from the database with a given id, then reloads tickets from the db
   function deleteTicket(id) {
     API.deleteTicket(id)
@@ -42,7 +58,7 @@ function Tickets(props) {
    setFormObject({...formObject, [name]: value})
  };
 
-// When the form is submitted, use the API.saveTicket method to save the ticket data
+ // When the form is submitted, use the API.saveTicket method to save the ticket data
 // Then reload tickets from the database
   function handleFormSubmit(event) {
     event.preventDefault();
@@ -74,22 +90,17 @@ function Tickets(props) {
               name="ticketNum"
               placeholder="Ticket Number (required)"
             />          
-            {/* <Input
-              onChange={handleInputChange}
-              name="ticketCust"
-              placeholder="Customer Name"
-            />  */}
-            <select
-              onChange={handleInputChange}
+            <select onChange={handleInputChange}
               name="ticketCust"
               placeholder= "Customer Name"
-              style={{width: '100%', height: 35, marginBottom: 15}}
-            > 
-                <option selected value="Customer">Customer</option>
-                <option value="grapefruit">Grapefruit</option>
-                <option value="lime">Lime</option>                
-                <option value="mango">Mango</option>
-            </select> 
+              style={{width: '100%', height: 35, marginBottom: 15}}>
+              {customers.map(customers => (
+                <option key={customers._id}>
+                  {customers.custName}
+                </option>              
+              ))}
+            </select>
+
 
             <FormBtn
               disabled={!(formObject.ticketNum)}
