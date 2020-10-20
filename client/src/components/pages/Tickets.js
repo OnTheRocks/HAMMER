@@ -95,17 +95,40 @@ function Tickets(props) {
               placeholder= "Customer Name"
               style={{width: '100%', height: 35, marginBottom: 15}}>
               {customers.map(customers => (
-                <option key={customers._id}>
-                  {customers.custName}
-                </option>              
+               <> 
+                <option value="" hidden>Select Customer</option>
+                <option default="Customer" key={customers._id}>{customers.custName}</option>  
+               </>             
               ))}
             </select>
-
-
+            <Input
+              onChange={handleInputChange}
+              name="ticketCustStreet"
+              placeholder="Street"
+            /> 
+            <Input
+              onChange={handleInputChange}
+              name="ticketCustCity"
+              placeholder="City"
+            /> 
+            <Input
+              onChange={handleInputChange}
+              name="ticketCustState"
+              placeholder="State"
+            /> 
+            <Input
+              onChange={handleInputChange}
+              name="ticketCustZip"
+              placeholder="Zip"
+            /> 
+            <Input
+              onChange={handleInputChange}
+              name="ticketCustMaterial"
+              placeholder="Material"
+            /> 
             <FormBtn
               disabled={!(formObject.ticketNum)}
-              onClick={handleFormSubmit}
-            >
+              onClick={handleFormSubmit}>
               Submit Ticket
             </FormBtn>
           </form>

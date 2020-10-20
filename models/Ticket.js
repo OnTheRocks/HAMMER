@@ -14,7 +14,22 @@ const TicketSchema = new Schema ({
   }, 
   ticketCust: {
     type: String
-  }
+  },
+  ticketCustStreet: {
+    type: String
+  },
+  ticketCustCity: {
+    type: String
+  },
+  ticketCustState: {
+    type: String
+  },
+  ticketCustZip: {
+    type: String
+  },
+  ticketCustMaterial: {
+    type: String
+  },
 });
 
 module.exports = Ticket = mongoose.model('ticket', TicketSchema);
