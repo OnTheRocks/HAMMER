@@ -19,8 +19,6 @@ function TicketDetails(props) {
       .then(res => setTickets(res.data))
       .catch(err => console.log(err));
   }, [id])
-// Formattig the Date-----------------------------------------------------
-
 
   return (
     <Container fluid>
@@ -47,6 +45,8 @@ function TicketDetails(props) {
                {moment(tickets.ticketDate).format("MM-DD-YYYY")}
                 <br></br>
                 {tickets.ticketCust}
+                <br></br>
+
                 <br></br>
                 <br></br>
                 <br></br>

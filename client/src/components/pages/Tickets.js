@@ -66,7 +66,8 @@ function Tickets(props) {
       API.saveTicket({
         ticketDate: formObject.ticketDate,
         ticketNum: formObject.ticketNum,
-        ticketCust: formObject.ticketCust
+        ticketCust: formObject.ticketCust,
+        ticketCustStreet: formObject.ticketCustStreet
       })
         .then(res => loadTickets())
         .catch(err => console.log(err));
@@ -105,6 +106,7 @@ function Tickets(props) {
               onChange={handleInputChange}
               name="ticketCustStreet"
               placeholder="Street"
+              // value="{customers.custStreet}"
             /> 
             <Input
               onChange={handleInputChange}
