@@ -15,8 +15,6 @@ function Tickets(props) {
   const [formObject, setFormObject] = useState({})
   const [customers, setCustomers] = useState([])
 
-  console.log("Customerss - ", customers);
-
   // Load all tickets and store them with setTickets
   useEffect(() => {
     loadTickets()
@@ -71,10 +69,11 @@ function Tickets(props) {
       })
         .then(res => loadTickets())
         .catch(err => console.log(err));
-        document.getElementById("ticketFrm").reset();        
+        document.getElementById("ticketFrm").reset();  
+        setFormObject({})      
     }
   };
-  
+
   return (
     <Container fluid>
       <Row>
@@ -99,9 +98,9 @@ function Tickets(props) {
               style={{width: '100%', height: 35, marginBottom: 15}}>
               {customers.map(customers => (
                <> 
-                <option value="" hidden>Select Customer</option>
-                <option default="Customer" key={customers._id}>{customers.custName}</option>  
-               </>             
+               <option value="" hidden>Select Customer</option>
+               <option default="Customer" key={customers._id}>{customers.custName}</option>  
+              </>   
               ))}
             </select>
             <Input
