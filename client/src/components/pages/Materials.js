@@ -51,6 +51,8 @@ function Materials() {
       })
         .then(res => loadMaterials())
         .catch(err => console.log(err));
+        document.getElementById("matFrm").reset();
+        setFormObject({}) 
     }
   };
 
@@ -61,7 +63,7 @@ function Materials() {
             <Jumbotron>
               <h1>Add Materials</h1>
             </Jumbotron>
-            <form>
+            <form id="matFrm">
               <Input 
                 onChange={handleInputChange} 
                 name="name" 
