@@ -71,8 +71,10 @@ function Tickets(props) {
       })
         .then(res => loadTickets())
         .catch(err => console.log(err));
+        document.getElementById("ticketFrm").reset();        
     }
   };
+  
   return (
     <Container fluid>
       <Row>
@@ -80,7 +82,7 @@ function Tickets(props) {
           <Jumbotron>
             <h1>Add Ticket</h1>
           </Jumbotron>
-          <form>
+          <form id="ticketFrm">
             <Input
               onChange={handleInputChange}
               name="ticketDate"
@@ -106,7 +108,6 @@ function Tickets(props) {
               onChange={handleInputChange}
               name="ticketCustStreet"
               placeholder="Street"
-              // value="{customers.custStreet}"
             /> 
             <Input
               onChange={handleInputChange}

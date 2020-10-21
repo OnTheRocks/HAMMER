@@ -63,7 +63,7 @@ function CustomerDetails(props) {
         </Col>
       </Row>
       <Row>
-        <Col size="md-2">
+        <Col size="md-4">
           <Link to="/Customers">← Back to Customers</Link>
         </Col>
       </Row>

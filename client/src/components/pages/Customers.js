@@ -53,6 +53,8 @@ function Customers() {
       })
         .then(res => loadCustomers())
         .catch(err => console.log(err));
+        document.getElementById("custFrm").reset();
+        setFormObject({})        
     }
   };
 
@@ -63,7 +65,7 @@ function Customers() {
             <Jumbotron>
               <h1>Add Customer</h1>
             </Jumbotron>
-            <form>
+            <form id="custFrm">
               <Input 
                 onChange={handleInputChange} 
                 name="custName" 
