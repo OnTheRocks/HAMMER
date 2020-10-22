@@ -15,6 +15,8 @@ function Tickets(props) {
   const [formObject, setFormObject] = useState({})
   const [customers, setCustomers] = useState([])
 
+  console.log("Customer = ", customers)
+
   // Load all tickets and store them with setTickets
   useEffect(() => {
     loadTickets()
