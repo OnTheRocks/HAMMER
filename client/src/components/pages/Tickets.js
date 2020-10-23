@@ -98,9 +98,9 @@ function Tickets(props) {
               name="ticketCust"
               placeholder= "Customer Name"
               style={{width: '100%', height: 35, marginBottom: 15}}>
-              {customers.map(customers => (
+              {customers.map((customers, id) => (
                <> 
-               <option value="" hidden>Select Customer</option>
+               <option value="" key={id} hidden>Select Customer</option>
                <option default="Customer" key={customers._id}>{customers.custName}</option>  
               </>   
               ))}
