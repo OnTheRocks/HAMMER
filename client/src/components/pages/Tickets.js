@@ -97,20 +97,18 @@ function Tickets(props) {
             <select onChange={handleInputChange}
               name="ticketCust"
               style={{width: '100%', height: 35, marginBottom: 15}}>
-              {customers.map((customers) => (
-               <> 
-               <option value=""  hidden>Select Customer</option>
-               <option>{customers.custName}</option>  
+              {customers.map((customers, ii ) => (
+              <> 
+               <option key={ii} value="" hidden>Select Customer</option>
+               <option key={customers.custName}>{customers.custName}</option>  
               </>   
               ))}
             </select>
-
-            <FormBtn><a href="/Customers">Add New Customer</a></FormBtn>
-
-            {/* <FormBtn
-              onClick="location.href = '/Customers'">
-              Submit Ticket
-            </FormBtn> */}
+            <Link to={"/Customers/"}>
+              <FormBtn>
+                Add New Customer
+              </FormBtn>
+            </Link>
             <Input
               onChange={handleInputChange}
               name="ticketCustStreet"
