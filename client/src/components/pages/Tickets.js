@@ -105,7 +105,7 @@ function Tickets(props) {
               ))}
             </select>
             <Link to={"/Customers/"}>
-              <FormBtn>
+              <FormBtn disabled="True"> 
                 Add New Customer
               </FormBtn>
             </Link>
