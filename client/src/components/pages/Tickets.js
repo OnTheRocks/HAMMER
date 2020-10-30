@@ -14,6 +14,7 @@ function Tickets(props) {
   const [tickets, setTickets] = useState([])
   const [formObject, setFormObject] = useState({})
   const [customers, setCustomers] = useState([])
+  const [materials, setMaterials] = useState([])
 
   console.log("Customer = ", customers)
 
@@ -45,6 +46,20 @@ function Tickets(props) {
     .catch(err => console.log(err));
   };
 
+  // Load all materials and store them with setMaterials
+  useEffect(() => {
+    loadMaterials()
+  }, [])
+
+  // Loads all materials and sets them to customers
+  function loadMaterials() {
+    API.getMaterials()
+    .then(res =>
+      setMaterials(res.data)
+    )
+    .catch(err => console.log(err));
+  };
+
   // Deletes a ticket from the database with a given id, then reloads tickets from the db
   function deleteTicket(id) {
     API.deleteTicket(id)
@@ -58,6 +73,11 @@ function Tickets(props) {
    setFormObject({...formObject, [name]: value})
  };
 
+ function handleInputChange2(event) {
+   const { name, value } = event.target;
+   setFormObject({...formObject, [name]: value})
+ };
+
  // When the form is submitted, use the API.saveTicket method to save the ticket data
 // Then reload tickets from the database
   function handleFormSubmit(event) {
@@ -67,7 +87,7 @@ function Tickets(props) {
         ticketDate: formObject.ticketDate,
         ticketNum: formObject.ticketNum,
         ticketCust: formObject.ticketCust,
-        ticketCustStreet: formObject.ticketCustStreet
+        ticketMaterial: formObject.ticketMaterial
       })
         .then(res => loadTickets())
         .catch(err => console.log(err));
@@ -104,36 +124,16 @@ function Tickets(props) {
               </>   
               ))}
             </select>
-            <Link to={"/Customers/"}>
-              <FormBtn disabled="True"> 
-                Add New Customer
-              </FormBtn>
-            </Link>
-            <Input
-              onChange={handleInputChange}
-              name="ticketCustStreet"
-              placeholder="Street"
-            /> 
-            <Input
-              onChange={handleInputChange}
-              name="ticketCustCity"
-              placeholder="City"
-            /> 
-            <Input
-              onChange={handleInputChange}
-              name="ticketCustState"
-              placeholder="State"
-            /> 
-            <Input
-              onChange={handleInputChange}
-              name="ticketCustZip"
-              placeholder="Zip"
-            /> 
-            <Input
-              onChange={handleInputChange}
-              name="ticketCustMaterial"
-              placeholder="Material"
-            /> 
+            <select onChange={handleInputChange}
+              name="ticketMaterial"
+              style={{width: '100%', height: 35, marginBottom: 15}}>
+              {materials.map((materials, ii ) => (
+              <> 
+               <option key={ii} value="" hidden>Select Material</option>
+               <option key={materials._id}>{materials.name}</option>  
+              </>   
+              ))}
+            </select>
             <FormBtn
               disabled={!(formObject.ticketNum)}
               onClick={handleFormSubmit}>
@@ -156,6 +156,8 @@ function Tickets(props) {
                       Ticket# - {tickets.ticketNum}
                       <br></br>
                       {tickets.ticketCust}
+                      <br></br>
+                      {tickets.ticketMaterial}
                       </strong>
                     </Link>
                     <DeleteBtn onClick={() => deleteTicket(tickets._id)}/>

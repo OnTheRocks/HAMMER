@@ -27,7 +27,7 @@ const TicketSchema = new Schema ({
   ticketCustZip: {
     type: String
   },
-  ticketCustMaterial: {
+  ticketMaterial: {
     type: String
   },
 });
