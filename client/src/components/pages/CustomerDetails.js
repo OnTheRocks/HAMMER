@@ -43,21 +43,20 @@ function CustomerDetails(props) {
           <article>
             <h1>Customer Details</h1>
             <p>
-              <strong>{customers.custName}</strong>
+            <br></br>
+              <strong>{customers.custName}
                   <br></br>
                 {customers.custStreet} 
                   <br></br>
-                {customers.custCity} 
+                {customers.custCity}, {customers.custState} &nbsp;{customers.custZip} 
+                
                   <br></br>
-                {customers.custState} 
                   <br></br>
-                {customers.custZip} 
-                  <br></br>
-                {customers.locations} 
-                  <br></br>
-                {locations.locations} 
+                Locations:</strong> {customers.locations}
+                  <br></br>                  
                   <br></br>                  
                 {customers._id}
+              
             </p>
           </article>
         </Col>
