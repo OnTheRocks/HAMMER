@@ -15,20 +15,29 @@ const TicketSchema = new Schema ({
   ticketCust: {
     type: String
   },
-  ticketCustStreet: {
-    type: String
-  },
-  ticketCustCity: {
-    type: String
-  },
-  ticketCustState: {
-    type: String
-  },
-  ticketCustZip: {
-    type: String
-  },
+  // ticketCustStreet: {
+  //   type: String
+  // },
+  // ticketCustCity: {
+  //   type: String
+  // },
+  // ticketCustState: {
+  //   type: String
+  // },
+  // ticketCustZip: {
+  //   type: String
+  // },
   ticketMaterial: {
     type: String
+  },
+  ticketTareWeight: {
+    type: Number
+  },
+  ticketGrossWeight: {
+    type: Number
+  },
+  ticketNetWeight: {
+    type: Number
   },
 });
 

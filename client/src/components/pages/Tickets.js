@@ -73,11 +73,7 @@ function Tickets(props) {
    setFormObject({...formObject, [name]: value})
  };
 
- function handleInputChange2(event) {
-   const { name, value } = event.target;
-   setFormObject({...formObject, [name]: value})
- };
-
+ 
  // When the form is submitted, use the API.saveTicket method to save the ticket data
 // Then reload tickets from the database
   function handleFormSubmit(event) {
@@ -87,7 +83,10 @@ function Tickets(props) {
         ticketDate: formObject.ticketDate,
         ticketNum: formObject.ticketNum,
         ticketCust: formObject.ticketCust,
-        ticketMaterial: formObject.ticketMaterial
+        ticketMaterial: formObject.ticketMaterial,
+        ticketTareWeight: formObject.ticketTareWeight,
+        ticketGrossWeight: formObject.ticketGrossWeight,
+        ticketNetWeight: formObject.ticketGrossWeight - formObject.ticketTareWeight
       })
         .then(res => loadTickets())
         .catch(err => console.log(err));
@@ -134,6 +133,16 @@ function Tickets(props) {
               </>   
               ))}
             </select>
+            <Input
+              onChange={handleInputChange}
+              name="ticketTareWeight"
+              placeholder="Tare Weight"
+            /> 
+            <Input
+              onChange={handleInputChange}
+              name="ticketGrossWeight"
+              placeholder="Gross Weight"
+            />          
             <FormBtn
               disabled={!(formObject.ticketNum)}
               onClick={handleFormSubmit}>
@@ -156,8 +165,6 @@ function Tickets(props) {
                       Ticket# - {tickets.ticketNum}
                       <br></br>
                       {tickets.ticketCust}
-                      <br></br>
-                      {tickets.ticketMaterial}
                       </strong>
                     </Link>
                     <DeleteBtn onClick={() => deleteTicket(tickets._id)}/>

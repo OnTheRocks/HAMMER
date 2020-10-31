@@ -39,18 +39,24 @@ function TicketDetails(props) {
             <h1>Ticket Details</h1>
             <p>
               <strong>
-                <br></br>
-               {tickets.ticketNum}
-                <br></br>
-               {moment(tickets.ticketDate).format("MM-DD-YYYY")}
-                <br></br>
-                {tickets.ticketCust}
-                <br></br>
-                {tickets.ticketMaterial}
-                <br></br>
-
-                <br></br>
-                <br></br>
+                 <br></br>               
+                <p>
+                  {moment(tickets.ticketDate).format("MM-DD-YYYY")}
+                    <br></br>
+                  Ticket # {tickets.ticketNum}
+                    <br></br>
+                    <br></br>
+                  Customer: &nbsp; {tickets.ticketCust}
+                    <br></br>
+                  Material: &nbsp;&nbsp;&nbsp; {tickets.ticketMaterial}
+                </p>                 
+                 <p>
+                 Tare Weight  &nbsp;&nbsp;&nbsp; -- &nbsp; {tickets.ticketTareWeight}
+                 <br></br>
+                 Gross Weight &nbsp; -- &nbsp; {tickets.ticketGrossWeight}
+                 <br></br>
+                 Net Weight  &nbsp;&nbsp;&nbsp;&nbsp; -- &nbsp; {tickets.ticketNetWeight}
+                 </p>
                 <br></br>
                {tickets._id}
                </strong>  
