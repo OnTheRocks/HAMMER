@@ -10,7 +10,8 @@
     "allSeed": "node scripts/SeedAll.js",
     "ticketSeed": "node scripts/TicketDBSeed.js",
     "custSeed": "node scripts/CustomerDBSeed.js",
-    "matSeed": "node scripts/MaterialDBSeed.js"
+    "matSeed": "node scripts/MaterialDBSeed.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
