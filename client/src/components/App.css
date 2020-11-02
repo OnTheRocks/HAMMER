@@ -1,0 +1,11 @@
+body {
+  background-color: #000000;
+  background-image: url(../assets/images/main.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.4;
+  padding-bottom:60px;
+
+  }
