@@ -3,7 +3,7 @@ import axios from "axios";
 export default { 
    // Gets all tickets
    getTickets: function() {
-     return axios.get("/api/Tickets");
+     return axios.get("/Tickets");
   },
   // Gets the ticket with the given id
   getTicket: function(id) {
