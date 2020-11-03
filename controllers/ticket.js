@@ -11,23 +11,16 @@ module.exports = {
      next(err);
    }
  },
-
- newTicket: function(req, res) {
-  db.ticket
-  Ticket.create(req.body)
-  .then(dbModel => res.json(dbModel))
-  .catch(err => res.status(422).json(err));
+ 
+ newTicket: async (req, res, next) => {
+   try {
+     const newTicket = await Ticket(req.body);
+     const ticket = await newTicket.save();
+     res.status(201).json(ticket);
+   } catch(err) {
+      next(err);
+   }
  },
-
-//  newTicket: async (req, res, next) => {
-//    try {
-//      const newTicket = await Ticket(req.body);
-//      const ticket = await newTicket.save();
-//      res.status(201).json(ticket);
-//    } catch(err) {
-//       next(err);
-//    }
-//  },
 
  getTicket: async(req, res, next) => {
   try {

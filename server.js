@@ -25,8 +25,6 @@ app.use('/customers', customers);
 app.use('/materials', materials)
 app.use('/tickets', tickets)
 
- 
-
 mongoose
   .connect(DB,{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
   .then(() => console.log('MongoDB Connected!'))
@@ -36,27 +34,3 @@ mongoose
 
   
 app.listen(port, () => console.log(`🌎 => Server started on port ${port}`));
-  
-    
-
-// app.use('api/customers', customers);
-// app.use('/api/tickets', tickets);
-// app.use('/api/materials', materials);
-
-  // res.json({
-
-    // customers: await Customer.find(),
-    // tickets: await Ticket.find(),
-
-    // tickets2: await Ticket.find().populate("material"),
-    // tickets3: await Ticket.find().populate("custName"),
-    // tickets4: await Ticket.find().populate("material").populate("custName")
-
-  // })
-  
-// })
-
-
-
-
-  
