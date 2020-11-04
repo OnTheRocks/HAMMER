@@ -18,7 +18,7 @@
     "react-scripts": "^3.4.3",
     "reactstrap": "^8.6.0"
   },
-  "proxy": "http://localhost:3030",
+  
   "browserslist": {
     "production": [
       ">0.2%",
