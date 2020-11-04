@@ -36,7 +36,6 @@ function App()  {
           <Route exact path={"/materials/:id"}>
             <MatDetails />
           </Route>
-
         </Switch>
       </div>
     </Router>

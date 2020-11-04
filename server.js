@@ -23,7 +23,7 @@ const DB = process.env.DB;
 // app.use('/', customers);/
 app.use('/customers', customers);
 app.use('/materials', materials)
-app.use('/api/tickets', tickets)
+app.use('/tickets', tickets)
 
 mongoose
   .connect(DB,{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
