@@ -1,6 +1,7 @@
 {
   "name": "HAMMER",
   "version": "1.0.0",
+  "proxy": "http://localhost:3030",
   "description": "",
   "main": "server.js",
   "scripts": {
