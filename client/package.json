@@ -18,7 +18,7 @@
     "react-scripts": "^3.4.3",
     "reactstrap": "^8.6.0"
   },
-  "proxy": "http://localhost:3030",
+
   "browserslist": {
     "production": [
       ">0.2%",
@@ -29,6 +29,7 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-    ]
+    ],
+    "proxy": "process.env.PORT || http://localhost:3030"
   }
 }
