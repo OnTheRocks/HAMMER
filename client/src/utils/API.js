@@ -8,7 +8,8 @@ export default {
   // Gets the ticket with the given id
   getTicket: function(id) {
     return axios.get("/Tickets/" + id);
-  },  
+  },
+  
   // Deletes the ticket with the given id
   deleteTicket: function(id) {
     return axios.delete("/Tickets/" + id);
@@ -24,10 +25,13 @@ export default {
   // Gets the customer with the given id
   getCustomer: function(id) {
     return axios.get("/Customers/" + id);
-  },
+  }, 
+
   getCustLocations: function(id) {
     return axios.get("/Customers/" + id + "/locations");
-  },  
+  },
+  
+  
   // Deletes the customer with the given id
   deleteCustomer: function(id) {
     return axios.delete("/Customers/" + id);
