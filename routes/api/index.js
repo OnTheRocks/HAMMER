@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const ticketRoutes = require("./tickets");
+const ticketRoutes = require("./Tickets");
 
 // Ticket routes
 router.use("/tickets", ticketRoutes);
