@@ -2,6 +2,7 @@
   "name": "hammer-client",
   "version": "1.0.0",
   "description": "Client for HAMMER app.",
+  "proxy": "http://localhost:3030",
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
@@ -18,8 +19,7 @@
     "react-scripts": "^3.4.3",
     "reactstrap": "^8.6.0"
   },
-  "proxy": "http://localhost:3030",
-  "browserslist": {
+    "browserslist": {
     "production": [
       ">0.2%",
       "not dead",
