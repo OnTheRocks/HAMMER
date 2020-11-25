@@ -10,10 +10,4 @@ link to the functional app: https://aqueous-sands-86088.herokuapp.com/
 
 About
 
-    <!-- The user will enter a city and click the search button. The app will return current weather information for that city. That information includes:
-        A weather icon depicting the current conditions
-        High Temperature
-        Low Temperature
-        Humidity
-        Wind Speed
-        UV Index -->
+    <!-- This app will allow the user(Currently a truck driver) Keep track of his daily load tickets.  A database holds the ticket information like Customer and material and should be able to run reports to export said information -->
