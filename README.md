@@ -1,4 +1,6 @@
-Code Name: HAMMER
+Code Name: 
+
+# HAMMER
 
 This is an app that helps a truck driver run his day to day by tracking his indivdual haul tickets, his customers and his list of materials.
 
@@ -6,8 +8,29 @@ This is an app that helps a truck driver run his day to day by tracking his indi
 
 Link to github repository: https://github.com/OnTheRocks/HAMMER.git
 
-link to the functional app: https://aqueous-sands-86088.herokuapp.com/
+link to the functional app: https://hammer2020.herokuapp.com/
 
-About
+## Table of Contents
+* [User Story](#user-story)
+* [Version 1.0](#version-1.0)
+* [How To Use](#how-to-use)
+* [Coding Languages Used](#coding-languages-used)
+* [NPMs Used](#npms-used)
+* [CSS Framework](#css-framework)
+* [Structure of Code and Functions](#structure-of-code-and-functions)
+* [Known Issues With Code](#known-issues-with-code)
 
-    <!-- This app will allow the user(Currently a truck driver) Keep track of his daily load tickets.  A database holds the ticket information like Customer and material and should be able to run reports to export said information -->
+## User Story
+
+## Version
+
+## How to Use
+
+## Coding Languages Used
+
+### NPMs Used
+
+## Structures of Code and Functions
+
+## Known Issues With Code
+
