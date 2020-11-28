@@ -30,4 +30,4 @@ mongoose
   .then(() => console.log('MongoDB Connected!'))
   .catch(err => console.log(err));
   
-app.listen(port, () => console.log(`🌎 => Server started on port ${port}`));
+app.listen(port, () => console.log(`🌎 => API Server started on port ${port}`));
