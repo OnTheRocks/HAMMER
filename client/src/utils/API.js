@@ -42,19 +42,19 @@ export default {
   },
  // Gets all Materials
   getMaterials: function() {
-    return axios.get("/Materials");
+    return axios.get("/api/Materials");
   },
   // Gets the Material with the given id
   getMaterial: function(id) {
-    return axios.get("/Materials/" + id);
+    return axios.get("/api/Materials/" + id);
   },
   // Deletes the Material with the given id
   deleteMaterial: function(id) {
-    return axios.delete("/materials/" + id);
+    return axios.delete("/api/materials/" + id);
   },
   // Saves a Material to the database
   saveMaterial: function(materialData) {
-    return axios.post("/materials", materialData);
+    return axios.post("/api/materials", materialData);
   },
 
 };
