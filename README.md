@@ -28,7 +28,7 @@ link to the functional app: https://hammer2020.herokuapp.com/
 
 ## Coding Languages Used
 
-### NPMs Used
+## NPMs Used
 
 ## Structures of Code and Functions
 
