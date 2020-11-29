@@ -33,4 +33,5 @@ link to the functional app: https://hammer2020.herokuapp.com/
 ## Structures of Code and Functions
 
 ## Known Issues With Code
+  - Currently having issues getting the API/Routes to work.
 
