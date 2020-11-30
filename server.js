@@ -4,6 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const routes = require("./routes");
 const app = express();
+const path = require('path')
 
 const port = process.env.PORT || 3030;
 
@@ -13,6 +14,11 @@ const tickets = require('./routes/api/Tickets');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/client/build/index.html'));
+});
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
