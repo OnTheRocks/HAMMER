@@ -23,10 +23,12 @@ link to the functional app: https://hammer2020.herokuapp.com/
 ## User Story
 
 ## Version
+1
 
 ## How to Use
 
-## Coding Languages Used
+## Coding Technologies Used
+  JavaScrpt, React, Node, Express, MongoDB, Mongoose, Bootstrap
 
 ## NPMs Used
 
