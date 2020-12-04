@@ -56,6 +56,4 @@ function MatDetails(props) {
   );
 }
 
-
-
 export default MatDetails
