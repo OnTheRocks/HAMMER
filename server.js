@@ -51,6 +51,7 @@ if (process.env.NODE_ENV === "production") {
 
 const DB = process.env.DB;
 
+app.use(routes);
 // app.use('/', customers);/
 app.use('/api/customers', customers);
 app.use('/materials', materials)
