@@ -42,12 +42,6 @@ if (process.env.NODE_ENV === "production") {
 // }
 
 
-
-
-
-
-
-
 const DB = process.env.DB;
 
 // app.use('/', customers);/
