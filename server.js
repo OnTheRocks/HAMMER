@@ -22,12 +22,12 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-app.get('/*', (req, res) => {
-  let url = path.join(__dirname, '../client/build', 'index.html');
-  if (!url.startsWith('/app/')) // we're on local windows
-    url = url.substring(1);
-  res.sendFile(url);
-});
+// app.get('/*', (req, res) => {
+//   let url = path.join(__dirname, '../client/build', 'index.html');
+//   if (!url.startsWith('/app/')) // we're on local windows
+//     url = url.substring(1);
+//   res.sendFile(url);
+// });
 
 // app.get('*', (req, res) => {
 //   res.sendFile(path.join(__dirname, '/client/build/index.html'));
@@ -52,10 +52,11 @@ app.get('/*', (req, res) => {
 const DB = process.env.DB;
 
 // app.use('/', customers);/
-app.use('/customers', customers);
+app.use('/api/customers', customers);
 app.use('/materials', materials)
 app.use('/tickets', tickets)
 
+//-------------- Connect to Mongo ----------------
 mongoose
   .connect(DB,{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
   .then(() => console.log('MongoDB Connected!'))
