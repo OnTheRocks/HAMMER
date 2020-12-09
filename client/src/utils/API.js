@@ -20,11 +20,11 @@ export default {
   },
    // Gets all Customers
    getCustomers: function() {
-     return axios.get("/Customers");
+     return axios.get("/api/Customers");
   },
   // Gets the customer with the given id
   getCustomer: function(id) {
-    return axios.get("/Customers/" + id);
+    return axios.get("/api/Customers/" + id);
   }, 
 
   getCustLocations: function(id) {
