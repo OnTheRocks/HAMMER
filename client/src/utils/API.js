@@ -24,7 +24,7 @@ export default {
   },
   // Gets the customer with the given id
   getCustomer: function(id) {
-    return axios.get("/api/Customers/" + id);
+    return axios.get("/Customers/" + id);
   }, 
 
   getCustLocations: function(id) {

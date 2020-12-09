@@ -23,10 +23,10 @@ if (process.env.NODE_ENV === "production") {
 const DB = process.env.DB;
 
 app.use(routes);
-// app.use('/', customers);/
+
 app.use('/api/customers', customers);
-app.use('/materials', materials)
-app.use('/tickets', tickets)
+app.use('/api/materials', materials)
+app.use('/api/tickets', tickets)
 
 //-------------- Connect to Mongo ----------------
 mongoose
