@@ -22,6 +22,7 @@
     "express": "^4.17.1",
     "moment": "^2.29.1",
     "mongoose": "^5.10.5",
+    "passport": "^0.4.1",
     "routes": "^2.1.0"
   },
   "devDependencies": {
