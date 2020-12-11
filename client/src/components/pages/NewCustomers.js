@@ -98,7 +98,7 @@ function NewCustomers() {
                 onClick={hadndleFormSubmit}>
                   Submit Customer
               </FormBtn>
-              <Link to="/Customers" className="btn btn-outline-success float-right">Back</Link>
+              <Link to="/Customers" className="btn btn-success float-right mr-2">Back</Link>
             </form>
           </div>
          </Row>

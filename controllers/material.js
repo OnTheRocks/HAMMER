@@ -6,7 +6,7 @@ module.exports = {
   
   index: function(req, res) {
       db.material
-      Material.find(req.query)
+      Material.find(req.query).sort( { name: 1 } )
       // .sort()
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));      

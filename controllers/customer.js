@@ -7,7 +7,7 @@ module.exports = {
 
 index: async (req, res, next) => {
   try {
-    const customers = await Customer.find({})
+    const customers = await Customer.find({}).sort( { custName: 1 } )
     res.status(200).json(customers);
   } catch(err) {
     next(err);
