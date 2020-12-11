@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../Grid";
 import { List, ListItem } from "../List";
 import { Input, FormBtn } from "../Form";
+import { Button } from 'reactstrap';
 
 function NewCustomers() {
   //  Setting initial state
@@ -92,14 +93,12 @@ function NewCustomers() {
                 name="custZip"
                 placeholder="Zip Code"
               />
-              <button id="btn btn-success" >
-                  Back
-              </button>
               <FormBtn
                 disabled={!(formObject.custName)}
                 onClick={hadndleFormSubmit}>
                   Submit Customer
               </FormBtn>
+              <Link to="/Customers" className="btn btn-outline-success float-right">Back</Link>
             </form>
           </div>
          </Row>

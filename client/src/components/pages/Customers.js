@@ -36,17 +36,12 @@ function Customers() {
 return (
   <Container fluid>
     <Row>
-      <Col size="md-6">
-        <Jumbotron>
-        <Link to="/NewCustomers"><h1>Add Customer</h1></Link>
-        </Jumbotron>
-        
-      </Col>
-      <Col size="md-6 sm-2">
+    <div class="col-md-6 offset-md-3">
         <Jumbotron>
           <h1>Customers</h1>
         </Jumbotron>
           {customers.length ? (
+            <>
             <List>
               {customers.map(customers => (      
                 <ListItem key={customers._id}>
@@ -55,14 +50,16 @@ return (
                       {customers.custName}
                     </strong>
                   </Link>
-                  <DeleteBtn onClick={() => deleteCustomer(customers._id)} />
-                </ListItem>
-              ))}
+                  <DeleteBtn onClick={() => deleteCustomer(customers._id)} />                  
+                </ListItem>                
+              ))}              
             </List>
+            <Link to="/NewCustomers" className="btn btn-outline-success float-right mt-4">Add Customer</Link>
+            </>
           ) : (      
             <h3>No Results to Display</h3>
           )}            
-        </Col>
+        </div>
       </Row>
     </Container>
   );
