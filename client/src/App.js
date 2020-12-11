@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import Tickets from './components/pages/Tickets';
 import TicketDetails from './components/pages/TicketDetails';
 import Customers from './components/pages/Customers';
+import NewCustomers from './components/pages/NewCustomers';
 import CustomerDetails from './components/pages/CustomerDetails';
 import Materials from './components/pages/Materials';
 import MatDetails from './components/pages/MatDetails';
@@ -26,6 +27,9 @@ function App()  {
           </Route>
           <Route exact path={"/customers"}>
             <Customers />
+          </Route>
+          <Route exact path={"/Newcustomers"}>
+            <NewCustomers />
           </Route>
           <Route exact path={"/customers/:id"}>
             <CustomerDetails />
