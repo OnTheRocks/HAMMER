@@ -3,6 +3,11 @@ const Schema = mongoose.Schema;
 
 const LocationSchema = new Schema({
 
+  // clID: {
+  //   type: String,
+  //   required: true,
+  //   unique: true
+  // },
   clName: {
     type: String
   },

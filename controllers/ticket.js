@@ -5,7 +5,7 @@ module.exports = {
 
  index: async(req, res, next) => {
    try {
-     const tickets = await Ticket.find({}).sort( { ticketNum: -1 } )
+     const tickets = await Ticket.find({}).sort( { ticketDate: -1 } )
     //  const tickets = await Ticket.find( { ticketCust: "Ozinga", ticketGrossWeight: { $gt: 85500 }}).sort( { ticketNum: -1 } )
      res.status(200).json(tickets);
    } catch(err) {
