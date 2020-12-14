@@ -1,5 +1,4 @@
 const Customer = require('../models/Customer');
-const Location = require("../models/Location");
 
 module.exports = {
  // Async/Await
