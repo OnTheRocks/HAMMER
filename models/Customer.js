@@ -20,8 +20,21 @@ const CustomerSchema = new Schema({
     type: String
   },
   locations: [{
-    type: Schema.Types.ObjectId,
-    ref: 'location'
+    clName: {
+      type: String
+    },
+    clStreet: {
+      type: String
+    },
+    clCity: {
+      type: String
+    }, 
+    clState: {
+      type: String
+    }, 
+    clZip: {
+      type: String
+    }
   }]
 });
 
