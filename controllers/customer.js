@@ -64,35 +64,35 @@ module.exports = {
  },
  
  //--------------Get/Post Customer Location------------------------
- getCustLocations: async(req, res, next) => {
-     const { customerID } = req.params;
-     const customer = await Customer.findById(customerID).populate('locations');
-     res.status(200).json(customer.locations);
-     console.log('Customer', customer);
- },
+//  getCustLocations: async(req, res, next) => {
+//      const { customerID } = req.params;
+//      const customer = await Customer.findById(customerID).populate('locations');
+//      res.status(200).json(customer.locations);
+//      console.log('Customer', customer);
+//  },
  
- newCustLocation: async(req, res, next) => {
-   const { customerID } = req.params;
-   // Create a new Location
-   const newCustLocation = new Location(req.body);
-   console.log("New Location", newCustLocation);
-   // Get Customer
-   const customer = await Customer.findById(customerID);
-   // Assign Customer 
-   newCustLocation.customer = customer;
-   // Save Location
-   await newCustLocation.save();
-   // Add location to Customers location array "locations"
-   customer.locations.push(newCustLocation);
-   // Save Customer
-   await customer.save();
-   res.status(201).json(newCustLocation);
- },
+//  newCustLocation: async(req, res, next) => {
+//    const { customerID } = req.params;
+//    // Create a new Location
+//    const newCustLocation = new Location(req.body);
+//    console.log("New Location", newCustLocation);
+//    // Get Customer
+//    const customer = await Customer.findById(customerID);
+//    // Assign Customer 
+//    newCustLocation.customer = customer;
+//    // Save Location
+//    await newCustLocation.save();
+//    // Add location to Customers location array "locations"
+//    customer.locations.push(newCustLocation);
+//    // Save Customer
+//    await customer.save();
+//    res.status(201).json(newCustLocation);
+//  },
  
-  getCustLocation: async(req, res, next) => {
-   const { locationID } = req.params;
-   const location = await Location.findById(locationID).populate('customer')
-   res.status(200).json(location);
-   console.log('Customer', location.customer);
- }, 
+//   getCustLocation: async(req, res, next) => {
+//    const { locationID } = req.params;
+//    const location = await Location.findById(locationID).populate('customer')
+//    res.status(200).json(location);
+//    console.log('Customer', location.customer);
+//  }, 
 };

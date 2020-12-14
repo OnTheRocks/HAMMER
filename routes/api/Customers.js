@@ -13,12 +13,12 @@ router.route('/')
   .patch(customerController.updateCustomer)
   .delete(customerController.removeCustomer);
 
-  router.route('/:customerID/Locations')
-  .get(customerController.getCustLocations)
-  .post(customerController.newCustLocation);
+  // router.route('/:customerID/Locations')
+  // .get(customerController.getCustLocations)
+  // .post(customerController.newCustLocation);
 
-  router.route('/:customerID/Locations/:locationID')
-  .get(customerController.getCustLocation)
+  // router.route('/:customerID/Locations/:locationID')
+  // .get(customerController.getCustLocation)
 
   module.exports = router;
 

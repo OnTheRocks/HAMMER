@@ -23,8 +23,6 @@ function CustomerDetails(props) {
       .catch(err => console.log(err));      
   }, [id])
 
-
-
   return (
     <Container fluid>
       <Row>
