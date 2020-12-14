@@ -15,6 +15,9 @@ const TicketSchema = new Schema ({
   ticketCust: {
     type: String
   },
+  ticketDeliveryInfo: {
+    type: String
+  },
   // ticketCustStreet: {
   //   type: String
   // },

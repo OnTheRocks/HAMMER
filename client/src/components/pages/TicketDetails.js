@@ -37,10 +37,11 @@ function TicketDetails(props) {
         <Col size="md-10 md-offset-1">
           <article>
             <h1>Ticket Details</h1>
+              <strong> {tickets._id} </strong>
             <p>
               <strong>
                  <br></br>               
-                <p>
+                <>
                   {moment(tickets.ticketDate).format("MM-DD-YYYY")}
                     <br></br>
                   Ticket # {tickets.ticketNum}
@@ -48,17 +49,18 @@ function TicketDetails(props) {
                     <br></br>
                   Customer: &nbsp; {tickets.ticketCust}
                     <br></br>
+                  Delivery Info: &nbsp; {tickets.ticketDeliveryInfo}
+                    <br></br>
                   Material: &nbsp;&nbsp;&nbsp; {tickets.ticketMaterial}
-                </p>                 
-                 <p>
-                 Tare Weight  &nbsp;&nbsp;&nbsp; -- &nbsp; {tickets.ticketTareWeight}
-                 <br></br>
-                 Gross Weight &nbsp; -- &nbsp; {tickets.ticketGrossWeight}
-                 <br></br>
-                 Net Weight  &nbsp;&nbsp;&nbsp;&nbsp; -- &nbsp; {tickets.ticketNetWeight}
-                 </p>
-                <br></br>
-               {tickets._id}
+                    <br></br>
+                    <br></br>
+                  Tare Weight  &nbsp;&nbsp;&nbsp; -- &nbsp; {tickets.ticketTareWeight}
+                    <br></br>
+                  Gross Weight &nbsp; -- &nbsp; {tickets.ticketGrossWeight}
+                    <br></br>
+                  Net Weight  &nbsp;&nbsp;&nbsp;&nbsp; -- &nbsp; {tickets.ticketNetWeight}
+                 </>
+                <br></br>               
                </strong>  
             </p>
           </article>

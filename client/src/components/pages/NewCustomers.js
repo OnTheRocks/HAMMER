@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
-import DeleteBtn from "../DeleteBtn";
 import Jumbotron from "../Jumbotron";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../Grid";
-import { List, ListItem } from "../List";
+import { Row, Container } from "../Grid";
 import { Input, FormBtn } from "../Form";
-import { Button } from 'reactstrap';
 
 function NewCustomers() {
   //  Setting initial state
-  const [customers, setCustomers] = useState([])
+  const [setCustomers] = useState([])
   const [formObject, setFormObject] = useState({})
 
   // Load all Customers and store them with setCustomer
@@ -28,11 +25,11 @@ function NewCustomers() {
   };
 
   // Deletes a Customer from the database with a fiven id, then reloads Customers
-  function deleteCustomer(id) {
-    API.deleteCustomer(id)
-      .then(res => loadCustomers())
-      .catch(err => console.log(err));
-  }
+  // function deleteCustomer(id) {
+  //   API.deleteCustomer(id)
+  //     .then(res => loadCustomers())
+  //     .catch(err => console.log(err));
+  // }
 
   // Handles updating component state when user types into the input field
   function handleInputChange(event) {

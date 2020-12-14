@@ -83,6 +83,7 @@ function Tickets(props) {
         ticketDate: formObject.ticketDate,
         ticketNum: formObject.ticketNum,
         ticketCust: formObject.ticketCust,
+        ticketDeliveryInfo: formObject.ticketDeliveryInfo,
         ticketMaterial: formObject.ticketMaterial,
         ticketTareWeight: formObject.ticketTareWeight,
         ticketGrossWeight: formObject.ticketGrossWeight,
@@ -123,6 +124,11 @@ function Tickets(props) {
               </>   
               ))}
             </select>
+            <Input
+              onChange={handleInputChange}
+              name="ticketDeliveryInfo"
+              placeholder="Delivery Info"
+            /> 
             <select onChange={handleInputChange}
               name="ticketMaterial"
               style={{width: '100%', height: 35, marginBottom: 15}}>
