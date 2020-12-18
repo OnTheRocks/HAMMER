@@ -21,6 +21,7 @@ link to the functional app: https://hammer2020.herokuapp.com/
 * [Known Issues With Code](#known-issues-with-code)
 
 ## User Story
+A truck driver needs a way to keep track of his haul tickets and be able to run reports on the data concerning differnt tickets, dates, customers and materials.
 
 ## Version
 1
