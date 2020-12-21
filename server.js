@@ -11,6 +11,7 @@ const port = process.env.PORT || 3030;
 const customers = require('./routes/api/Customers');
 const materials = require('./routes/api/Materials');
 const tickets = require('./routes/api/Tickets');
+const passport = require('passport');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -25,8 +26,11 @@ const DB = process.env.DB;
 app.use(routes);
 
 app.use('/api/customers', customers);
-app.use('/api/materials', materials)
-app.use('/api/tickets', tickets)
+app.use('/api/materials', materials);
+app.use('/api/tickets', tickets);
+
+//---Registration/Login Routes -----------
+app.use('/api/passport', passport);
 
 //-------------- Connect to Mongo ----------------
 mongoose
