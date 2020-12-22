@@ -7,19 +7,19 @@ import { Input, FormBtn } from "../Form";
 
 function NewCustomers() {
   //  Setting initial state
-  const [setCustomers] = useState([])
+  // const [setCustomers] = useState([])
   const [formObject, setFormObject] = useState({})
 
   // Load all Customers and store them with setCustomer
   useEffect(() => {
     loadCustomers()
-  }, [])
+  },)
 
   // Loads all customers and sets them to customers
   function loadCustomers() {
     API.getCustomers()
     .then(res =>
-      setCustomers(res.data)
+      (res.data)
     )
     .catch(err => console.log(err));
   };
@@ -60,7 +60,7 @@ function NewCustomers() {
     return (
       <Container fluid>
         <Row>
-          <div class="col-md-6 offset-md-3">
+          <div classID="col-md-6 offset-md-3">
             <Jumbotron>
               <h1>Add Customer</h1>
             </Jumbotron>

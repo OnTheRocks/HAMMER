@@ -21,7 +21,7 @@ function CustomerDetails(props) {
     API.getCustLocations(id)
       .then(res => setLocations(res.data))
       .catch(err => console.log(err));      
-  }, [id])
+  },)
 
   return (
     <Container fluid>
