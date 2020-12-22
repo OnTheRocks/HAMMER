@@ -4,15 +4,21 @@ const express = require('express');
 const mongoose = require('mongoose');
 const routes = require("./routes");
 const app = express();
-const passport = require('passport');
-const path = require('path')
+// const passport = require('passport');
+// const path = require('path')
 
 const port = process.env.PORT || 3030;
 
 const customers = require('./routes/api/Customers');
 const materials = require('./routes/api/Materials');
 const tickets = require('./routes/api/Tickets');
-const users = require('./routes/api/Users');
+
+// const initalizePassport = require('./passport.config');
+// initalizePassport(
+//   passport,
+//   email => users.find(user => user.email === email), 
+//   id => users.find(user => user.id === id)
+// )
 
 
 app.use(express.urlencoded({ extended: true }));
@@ -32,7 +38,7 @@ app.use('/api/materials', materials);
 app.use('/api/tickets', tickets);
 
 //---Registration/Login Routes -----------
-app.use('/api/users', users);
+
 
 //-------------- Connect to Mongo ----------------
 mongoose

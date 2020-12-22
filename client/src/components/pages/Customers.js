@@ -36,7 +36,7 @@ function Customers() {
 return (
   <Container fluid>
     <Row>
-    <div class="col-md-6 offset-md-3">
+    <div classID="col-md-6 offset-md-3">
         <Jumbotron>
           <h1>Customers</h1>
         </Jumbotron>
