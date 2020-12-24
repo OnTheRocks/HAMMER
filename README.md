@@ -29,7 +29,7 @@ A truck driver needs a way to keep track of his haul tickets and be able to run 
 ## How to Use
 
 ## Coding Technologies Used
-  JavaScrpt, React, Node, Express, MongoDB, Mongoose, Bootstrap, Passport
+  JavaScrpt, React, Node, Express, MongoDB, Mongoose, Bootstrap, Passport, Bcrypt
 
 ## NPMs Used
 
