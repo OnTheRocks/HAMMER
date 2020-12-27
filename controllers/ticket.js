@@ -1,4 +1,3 @@
-const { db } = require('../models/Ticket');
 const Ticket = require('../models/Ticket');
 
 module.exports = {
