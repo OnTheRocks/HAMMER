@@ -2,8 +2,13 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-
   userName: {
+    type: String
+  },
+  firstName: {
+    type: String
+  },
+  lastName: {
     type: String
   },
   eMail: {
@@ -12,8 +17,6 @@ const UserSchema = new Schema({
   password: {
     type: String
   }
-
-
 });
 
 const User = mongoose.model('user', UserSchema);
