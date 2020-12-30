@@ -22,13 +22,15 @@ const customers = require('./routes/api/Customers');
 const materials = require('./routes/api/Materials');
 const tickets = require('./routes/api/Tickets');
 
-const initalizePassport = require('./passport.config');
+const initalizePassport = require('./passport-config');
 initalizePassport(
   passport,
   email => users.find(user => user.email === email), 
   id => users.find(user => user.id === id)
 )
 
+
+const users = []
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -44,11 +46,11 @@ app.use(passport.session())
 app.use(methodOverride('_method'))
 
 app.get('/', checkAuthenticated, (req, res) => {
-  res.render('index.ejs', { name: req.user.name})
+  res.render('index.js', { name: req.user.name})
 })
 
 app.get('/login', checkNotAuthenticated, (req, res) => {
-  res.render('login.ejs')
+  res.render('login.js')
 })
 
 app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
@@ -58,7 +60,7 @@ app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
 }))
 
 app.get('/register', checkNotAuthenticated, (req, res) => {
-  res.render('register.ejs')
+  res.render('register.js')
 })
 
 app.post('/register', checkNotAuthenticated, async (req, res) => {

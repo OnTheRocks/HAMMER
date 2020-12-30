@@ -50,9 +50,10 @@ function CustomerDetails(props) {
                 
                   <br></br>
                   <br></br>
-                Locations:</strong> {customers.locations}
+                  </strong>
+                {/* Locations:</strong> {customers.locations}
                   <br></br>                  
-                  <br></br>                  
+                  <br></br>                   */}
                 {customers._id}
               
             </p>

@@ -1,6 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NavBar from './components/NavBar';
+import Index from './components/pages/Index';
+import Register from './components/pages/Register';
+import Login from './components/pages/Login';
 import Tickets from './components/pages/Tickets';
 import TicketDetails from './components/pages/TicketDetails';
 import Customers from './components/pages/Customers';
@@ -19,6 +22,15 @@ function App()  {
       <div>
         <NavBar/>
         <Switch>
+          <Route exact path={"/index"}>
+            <Index />
+          </Route>
+          <Route exact path={"/register"}>
+            <Register />
+          </Route>
+          <Route exact path={"/login"}>
+            <Login />
+          </Route>
           <Route exact path={"/tickets"}>
             <Tickets />
           </Route>
