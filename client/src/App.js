@@ -22,7 +22,7 @@ function App()  {
       <div>
         <NavBar/>
         <Switch>
-          <Route exact path={"/index"}>
+          <Route exact path={"/"}>
             <Index />
           </Route>
           <Route exact path={"/register"}>

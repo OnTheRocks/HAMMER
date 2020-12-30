@@ -3,6 +3,8 @@ import React, { useState } from "react";
 
 function Main() {
   const [users] = useState({})
+  
+  console.log(users.name);
 return (
 
   <div>
