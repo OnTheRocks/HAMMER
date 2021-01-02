@@ -37,4 +37,6 @@ A truck driver needs a way to keep track of his haul tickets and be able to run 
 
 ## Known Issues With Code
 
+Still in development, lots of issues currently.
+
 
