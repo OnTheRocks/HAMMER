@@ -22,12 +22,15 @@
 
 .list-overflow-container li a {
   color: green;
+  
 }
 
 .list-overflow-container li:first-child {
   border-top: none;
+  background-color: gray;
 }
 
 .list-overflow-container li:last-child {
   border-bottom: none;
 }
+
