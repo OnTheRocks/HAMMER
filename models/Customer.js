@@ -19,23 +19,23 @@ const CustomerSchema = new Schema({
   custZip: {
     type: String
   },
-  // locations: [{
-  //   clName: {
-  //     type: String
-  //   },
-  //   clStreet: {
-  //     type: String
-  //   },
-  //   clCity: {
-  //     type: String
-  //   }, 
-  //   clState: {
-  //     type: String
-  //   }, 
-  //   clZip: {
-  //     type: String
-  //   }
-  // }]
+  locations: [{
+    clName: {
+      type: String
+    },
+    clStreet: {
+      type: String
+    },
+    clCity: {
+      type: String
+    }, 
+    clState: {
+      type: String
+    }, 
+    clZip: {
+      type: String
+    }
+  }]
 });
 
 const Customer = mongoose.model('customer', CustomerSchema);
