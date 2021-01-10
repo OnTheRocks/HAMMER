@@ -8,8 +8,6 @@ const moment = require('moment');
 
 function TicketDetails(props) {
   const [tickets, setTickets] = useState({})
-  
-
 
   // When this component mounts, grab the ticket with the _id of props.match.params.id
   // e.g. localhost:3000/Tickets/599dcb67f0f16317844583fc
