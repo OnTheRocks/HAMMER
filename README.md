@@ -4,7 +4,7 @@ Code Name:
 
 This is an app that helps a truck driver run his day to day by tracking his indivdual haul tickets, his customers and his list of materials.
 
-<!-- Photo by Andrew Neel from Pexels Photo by Ralph W. lambrecht from Pexels -->
+Photo by Andrew Neel from Pexels Photo by Ralph W. lambrecht from Pexels
 
 Link to github repository: https://github.com/OnTheRocks/HAMMER.git
 
